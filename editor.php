@@ -71,30 +71,7 @@ if (MENUBUTTON=="TOP") {
 include_once __DIR__."/include/buttons.php"; 
 }
 ?>
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-  <label for="username">Username:</label>
-  <input type="text" id="username" name="username"><br><br>
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="password"><br><br>
-  <input type="submit" value="Submit">
-</form>
-<?php
-if (!empty($_POST)) {
-  // form has been submitted
-}
-$username = $_POST['username'];
-$password = $_POST['password'];
 
-$command = "echo $password | sudo -S whoami";
-$output = exec($command);
-
-if (trim($output) === $username) {
-  // login successful
-} else {
-  // login failed
-  echo "Incorrect username or password.";
-}
-?>
 <?php
 // configuration//
 $id = $_POST['id'];
@@ -121,6 +98,9 @@ if($if="metarinfo"){
 // check if form has been submitted
 //$filename = by choice;
 
+
+
+
 $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"."editor.php";
 if (isset($_POST['text']))
 {
@@ -138,6 +118,31 @@ $text = file_get_contents($file);
 
 ?>
 <!-- HTML form -->
+<html>
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username"><br><br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password"><br><br>
+  <input type="submit" value="Submit">
+</form>
+</html>
+<?php
+if (!empty($_POST)) {
+  // form has been submitted
+}
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+$command = "echo $password | sudo -S whoami";
+$output = exec($command);
+
+if (trim($output) === $username) {
+  // login successful
+} else {
+  // login failed
+  echo "Incorrect username or password.";
+}?>
 <form action="/include/editor.php" method="post">
 <textarea name="text"><?php echo htmlspecialchars($text); ?></textarea>
 <input type="submit" />

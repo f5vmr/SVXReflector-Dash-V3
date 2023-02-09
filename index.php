@@ -8,6 +8,8 @@ if (fopen($svxConfigFile, 'r')) {
     $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
     $fmnetwork = $svxconfig['ReflectorLogic']['FMNET'];
     $tgUri = $svxconfig['ReflectorLogic']['TG_URI'];
+    $node_password = $svxconfig['ReflectorLogic']['AUTH_KEY'];
+    $node_user=$callsign;
 }
 else { $callsign="NOCALL"; 
        $fmnetwork="not registered";

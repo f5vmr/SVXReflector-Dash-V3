@@ -132,6 +132,7 @@ if (isset($_POST['btnSave']))
 
   	$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
     $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
+    $inPassword = $svxconfig['ReflectorLogic']['AUTH_KEY'];
 	$inLocation = $nodeInfo["nodeLocation"];
     $inLocator = $nodeInfo["loc"]; 
     $inSysOp = $nodeInfo["sysop"];

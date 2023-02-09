@@ -79,10 +79,10 @@ include_once __DIR__."/include/buttons.php";
 ?>
 <html>
   <head>
-    <title>Authorising Access</title>
+    <title>Authorising Node Access</title>
   </head>
   <body>
-    <h1>Raspberry Pi Access</h1>
+    <h1>Node Access details </h1>
     <form action="access.php" method="post">
       <p>Username: <input type="text" name="username"></p>
       <p>Password: <input type="password" name="password"></p>

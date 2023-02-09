@@ -71,6 +71,7 @@ if (MENUBUTTON=="TOP") {
 include_once __DIR__."/include/buttons.php"; 
 }
 ?>
+
 <html>
   <head>
     <title>Authorising Access</title>
@@ -84,6 +85,7 @@ include_once __DIR__."/include/buttons.php";
     </form>
   </body>
 </html>
+
 <?php
 // configuration//
 $id = $_POST['id'];

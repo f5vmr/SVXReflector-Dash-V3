@@ -98,6 +98,7 @@ $output = exec($command);
 
 if (trim($output) === $username) {
   // login successful
+  echo "Login successful.";
 } else {
   // login failed
   echo "Incorrect username or password.";

@@ -77,75 +77,28 @@ if (MENUBUTTON=="TOP") {
 include_once __DIR__."/include/buttons.php"; 
 }
 ?>
-<?php
-    echo '<table style="margin-bottom:0px;border:0; border-collapse:collapse; cellspacing:0; cellpadding:0; background-color:#f1f1f1;"><tr style="border:none;background-color:#f1f1f1;">';
-    echo '<td width="200px" valign="top" class="hide" style="height:auto;border:0;background-color:#f1f1f1;">';
-    echo '<div class="nav" style="margin-bottom:1px;margin-top:10px;">'."\n";
-
-    echo '<script type="text/javascript">'."\n";
-    echo 'function reloadStatusInfo(){'."\n";
-    echo '$("#statusInfo").load("include/status.php",function(){ setTimeout(reloadStatusInfo,3000) });'."\n";
-    echo '}'."\n";
-    echo 'setTimeout(reloadStatusInfo,3000);'."\n";
-    echo '$(window).trigger(\'resize\');'."\n";
-    echo '</script>'."\n";
-    echo '<div id="statusInfo" style="margin-bottom:30px;">'."\n";
-    include 'include/status.php';
-    echo '</div>'."\n";
-    echo '</div>'."\n";
-    echo '</td>'."\n";
-
-    echo '<td valign="top" style="height:auto;border:none;  background-color:#f1f1f1;">';
-    echo '<div class="content">'."\n";
-    echo '<script type="text/javascript">'."\n";
-
-    if (URLSVXRAPI!="") {
-    echo 'function reloadSVXREF(){'."\n";
-    echo '  $("#svxref").load("include/svxref.php",function(){ setTimeout(reloadSVXREF,90000) });'."\n";
-    echo '}'."\n";
-    echo 'setTimeout(reloadSVXREF,90000);'."\n";
-     }
-
-    echo 'function reloadLastHeard(){'."\n";
-    echo '  $("#LastHeard").load("include/lh.php",function(){ setTimeout(reloadLastHeard,3000) });'."\n";
-    echo '}'."\n";
-    echo 'setTimeout(reloadLastHeard,3000);'."\n";
-
-    echo '$(window).trigger(\'resize\');'."\n";
-    echo '</script>'."\n";
-    echo '<center><div id="LastHeard" style="margin-bottom:30px;">'."\n";
-    include 'include/lh.php';
-    echo '</div></center>'."\n";
-    echo "<br />\n";
-    if (URLSVXRAPI!="") {
-    echo '<center><div id="svxref" style="margin-bottom:30px;">'."\n";
-    //include 'include/svxref.php';
-    echo '</div></center>'."\n";
-    }
-    echo '</td></tr></table>';
-?>
-
-<?php
-    echo '<div class="content2">'."\n";
-    echo '<script type="text/javascript">'."\n";
-    echo 'function reloadSysInfo(){'."\n";
-    echo '  $("#sysInfo").load("include/system.php",function(){ setTimeout(reloadSysInfo,15000) });'."\n";
-    echo '}'."\n";
-    echo 'setTimeout(reloadSysInfo,15000);'."\n";
-    echo '$(window).trigger(\'resize\');'."\n";
-    echo '</script>'."\n";
-    echo '<div id="sysInfo">'."\n";
-    include 'include/system.php';
-    echo '</div>'."\n";
-    echo '</div>'."\n";
-?>
-<?php
-if (MENUBUTTON=="BOTTOM") {
-include_once __DIR__."/include/buttons.php"; }
-?>
-<center><span title="Dashboard" style="font: 7pt arial, sans-serif;">SvxLink Dashboard ©  G4NAB, SP2ONG, SP0DZ <?php $cdate=date("Y"); if ($cdate > "2021") {$cdate="2021-".date("Y");} echo $cdate; ?>
-</div>
-</fieldset>
-<br>
-</body>
+<html>
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username"><br><br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password"><br><br>
+  <input type="submit" value="Submit">
+</form>
 </html>
+<?php
+if (!empty($_POST)) {
+  // form has been submitted
+}
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+$command = "echo $password | sudo -S whoami";
+$output = exec($command);
+
+if (trim($output) === $username) {
+  // login successful
+} else {
+  // login failed
+  echo "Incorrect username or password.";
+}?>

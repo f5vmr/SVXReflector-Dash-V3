@@ -6,12 +6,13 @@
   $existing_username = exec("echo $USER");
   echo $existing_username;
   $existing_password = exec("cat /etc/shadow | grep $existing_username | awk -F':' '{print $2}'");
-echo $existing_password;
-echo (crypt($password,$salt));
+  echo $password."</br>";
+  echo $existing_password."</br>";
+echo (crypt($password,$salt))."</br>";
   // Check if the user input matches the stored information
   if ($username == $existing_username && password_verify($password, $existing_password)) {
-    echo "Access granted!";
+    echo "Access granted!"."</br>";
   } else {
-    echo "Access denied.";
+    echo "Access denied."."</br>";
   }
 ?>

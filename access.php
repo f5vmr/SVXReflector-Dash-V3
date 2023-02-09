@@ -5,7 +5,7 @@
   // Get the existing username and password information from the Raspberry Pi
   
   // Check if the user input matches the stored information
-  if ($username == $node_user && password_verify($password, $node_password)) {
+  if ($username == $node_user and $password == $node_password) {
     echo "Access granted!"."</br>";
   } else {
     echo "Access denied."."</br>";

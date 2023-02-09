@@ -78,28 +78,15 @@ include_once __DIR__."/include/buttons.php";
 }
 ?>
 <html>
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-  <label for="username">Username:</label>
-  <input type="text" id="username" name="username"><br><br>
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="password"><br><br>
-  <input type="submit" value="Submit">
-</form>
+  <head>
+    <title>Authorising Access</title>
+  </head>
+  <body>
+    <h1>Raspberry Pi Access</h1>
+    <form action="access.php" method="post">
+      <p>Username: <input type="text" name="username"></p>
+      <p>Password: <input type="password" name="password"></p>
+      <p><input type="submit" value="Submit"></p>
+    </form>
+  </body>
 </html>
-<?php
-if (!empty($_POST)) {
-  // form has been submitted
-}
-$username = $_POST['username'];
-$password = $_POST['password'];
-
-$command = "echo $password | sudo -S whoami";
-$output = exec($command);
-
-if (trim($output) === $username) {
-  // login successful
-  echo "Login successful.";
-} else {
-  // login failed
-  echo "Incorrect username or password.";
-}?>

@@ -1,10 +1,10 @@
 <?php
   $username = $_POST["username"];
   $password = $_POST["password"];
-echo $username . "</br>";
-echo $password . "</br>";
-echo $node_user . "</br>";
-echo $node_password ."</br>";
+echo $username . "1</br>";
+echo $password . "2</br>";
+echo $node_user . "3</br>";
+echo $node_password ."4</br>";
   // Get the existing username and password information from the Raspberry Pi
   
   // Check if the user input matches the stored information

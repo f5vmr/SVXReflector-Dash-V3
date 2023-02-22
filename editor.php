@@ -100,7 +100,7 @@ include_once __DIR__."/include/buttons.php";
     echo '<td valign="top" style="height:auto;border:none;  background-color:#f1f1f1;">';
     echo '<div class="content">'."\n";
     echo '<script type="text/javascript">'."\n";
-
+echo ' $("#edit").load("include/editor.php")'."\n";
    /* if (URLSVXRAPI!="") {
     echo 'function reloadSVXREF(){'."\n";
     echo '  $("#svxref").load("include/svxref.php",function(){ setTimeout(reloadSVXREF,90000) });'."\n";

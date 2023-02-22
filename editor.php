@@ -72,7 +72,7 @@ include_once __DIR__."/include/buttons.php";
 }
 ?>
 
-<!--html>
+<html>
   <head>
     <title>Authorising Access</title>
   </head>
@@ -84,53 +84,9 @@ include_once __DIR__."/include/buttons.php";
       <p><input type="submit" value="Submit"></p>
     </form>
   </body>
-</html-->
-
-<?php
-// configuration//
-$id = $_POST['id'];
-if($id="svxlink") {
-    shell_exec("cd /etc/svxlink/");
-    $file = "svxlink.conf";
-    echo "svxlink.conf";
-}
-if($id="gpio") {
-    shell_exec("cd /etc/svxlink/");
-    $file = "gpio.conf";
-    echo "gpio.conf";
-}
-if($id="echolink"){
-    shell_exec("cd /etc/svxlink/svxlink.d/");
-    $file = "ModuleEchoLink.conf";
-    echo "EchoLink.conf";
-}
-if($if="metarinfo"){
-    shell_exec("cd /etc/svxlink/svxlink.d");
-    $file = "ModuleMetarInfo.conf";
-    echo "metarinfo.conf";
-}
-// check if form has been submitted
-//$filename = by choice;
+</html>
 
 
-
-
-$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"."editor.php";
-if (isset($_POST['text']))
-{
-    // save the text contents
-    file_put_contents($file, $_POST['text']);
-
-    // redirect to form again
-    header(sprintf('Location: %s', $url));
-    printf('<a href="%s">Moved</a>.', htmlspecialchars($url));
-    exit();
-}
-
-// read the textfile
-$text = file_get_contents($file);
-
-?>
 <!-- HTML form -->
 
 <form action="/include/editor.php" method="post">

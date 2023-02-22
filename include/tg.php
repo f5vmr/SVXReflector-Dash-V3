@@ -36,7 +36,7 @@ if (isset($_POST['btnUpdateTgs']))
 <span style="font-weight: bold;font-size:14px;">Talk Groups</span>
 <fieldset style=" width:550px;box-shadow:5px 5px 20px #999;background-color:#e8e8e8e8;margin-top:10px;margin-left:0px;margin-right:0px;font-size:12px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
   <form method="post">
-  <table style="margin-top:3px;">
+  <table style="margin-top:0px;">
     <tr height=25px>
       <th width=100px>TG #</th>
       <th width=30px> M </th>

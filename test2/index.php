@@ -65,21 +65,8 @@ textarea {
 <h1 id="Edit Config" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Node Info Configurator</h1>
 
 <?php
-
 $file = '/etc/svxlink/svxlink.conf';
-$lines = file($file);
-echo '<form method="post" scrolling="yes">';
-echo '<table>';
-foreach ($lines as $line_num => $line) {
-    echo '<tr><td contenteditable="true" style="text-align:left">' . htmlspecialchars($line) . '</td></tr>';
-}
-echo '</table>';
-echo '<input type="submit" value="Save Changes">';
-echo '</form>';
-?>
-
-<?php
-$file = '/etc/svxlink/svxlink.conf';
+exec('sudo cp $file $file."bak"');
 $lines = file($file);
 echo '<form method="post">';
 echo '<table>';
@@ -99,8 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($success === false) {
         echo 'Error saving changes to file.';
     } else {
-        chown($file, 'www-data');
-        exec('systemctl restart svxlink');
+        exec('sudo chown www-data $file');
+        exec('sudo systemctl restart svxlink');
         echo 'Changes saved and service restarted.';
     }
 }

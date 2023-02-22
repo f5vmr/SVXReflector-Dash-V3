@@ -154,22 +154,13 @@ textarea {
 <div style="padding:0px;width:550px;background-image: linear-gradient(to bottom, #e9e9e9 50%, #bcbaba 100%);border-radius: 10px;-moz-border-radius:10px;-webkit-border-radius:10px;border: 1px solid LightGrey;margin-left:0px; margin-right:0px;margin-top:4px;margin-bottom:0px;line-height:1.6;white-space:normal;">
 
 <h1 id="edit_info" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Edit Configuration</h1>
-<?php
-//$file = chosen by menu;
-echo $file;
-$lines = file($file);
-echo '<table>';
-foreach ($lines as $line_num => $line) {
-    echo '<tr><td>' . htmlspecialchars($line) . '</td></tr>';
-}
-echo '</table>';
-?>
+
 <?php
 $lines = file($file);
 echo '<form method="post">';
 echo '<table>';
 foreach ($lines as $line_num => $line) {
-    echo '<tr><td contenteditable="true">' . htmlspecialchars($line) . '</td></tr>';
+    echo '<tr><td contenteditable="true" style="text-align:left">' . htmlspecialchars($line) . '</td></tr>';
 }
 echo '</table>';
 echo '<input type="submit" value="Save Changes">';
@@ -182,9 +173,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($_POST['line'] as $line) {
         $data .= $line . "\n";
     }
+    exec('sudo chmod -r 0777 /etc/svxlink');
+    $date=date('d-M-Y');
+    exec('sudo cp $file $file.$date.');    
     file_put_contents($file, $data);
-    exec('systemctl restart svxlink');
-    echo 'Changes saved and service restarted.';
+
+    exec('sudo systemctl restart svxlink');
+    exec('sudo chmod -r 0755 /etc/svxlink');
+    echo 'All Changes saved and service restarted.';
 
 
 } else {

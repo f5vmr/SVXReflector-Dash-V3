@@ -182,6 +182,7 @@ if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || $net5 ==
 ?>-->
 <?php
 //$file = chosen by menu;
+echo $file;
 $lines = file($file);
 echo '<table>';
 foreach ($lines as $line_num => $line) {

@@ -114,7 +114,7 @@ if (isset($_POST['text']))
 }
 */
 // read the textfile
-$text = file_get_contents($file);
+//$text = file_get_contents($file);
 
 ?>
 <?php

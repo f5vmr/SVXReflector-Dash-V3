@@ -68,7 +68,7 @@ textarea {
 $file = '/etc/svxlink/svxlink.txt';
 exec('sudo cp $file $file."bak"');
 $lines = file($file);
-echo '<form method="post">';
+echo '<form method="POST">';
 echo '<table>';
 foreach ($lines as $line_num => $line) {
     echo '<tr><td contenteditable="true" style="text-align:left">' . htmlspecialchars($line) . '</td></tr>';

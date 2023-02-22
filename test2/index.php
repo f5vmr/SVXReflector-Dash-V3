@@ -77,24 +77,35 @@ echo '</table>';
 echo '<input type="submit" value="Save Changes">';
 echo '</form>';
 ?>
+
 <?php
+$file = '/etc/svxlink/svxlink.conf';
+$lines = file($file);
+echo '<form method="post">';
+echo '<table>';
+foreach ($lines as $line_num => $line) {
+    echo '<tr><td contenteditable="true" style="text-align:left">' . htmlspecialchars($line) . '</td></tr>';
+}
+echo '</table>';
+echo '<input type="submit" value="Save Changes">';
+echo '</form>';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
     $data = '';
     foreach ($_POST['line'] as $line) {
         $data .= $line . "\n";
     }
-    exec('sudo chmod -r 0777 /etc/svxlink');
-    $date=date('d-M-Y');
-    exec('sudo cp $file $file.$date.');    
-    file_put_contents($file, $data);
-
-    exec('sudo systemctl restart svxlink');
-    exec('sudo chmod -r 0755 /etc/svxlink');
-    echo 'All Changes saved and service restarted.';
+    $success = file_put_contents($file, $data);
+    if ($success === false) {
+        echo 'Error saving changes to file.';
+    } else {
+        chown($file, 'www-data');
+        exec('systemctl restart svxlink');
+        echo 'Changes saved and service restarted.';
+    }
 }
-
 ?>
+
 </center>
 </div>
 </fieldset>

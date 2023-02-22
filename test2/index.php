@@ -72,7 +72,7 @@ echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialc
 
 echo '<table width=60%>';
 foreach ($lines as $line_num => $line) {
-    echo '<tr><td contenteditable="true" style="text-align:left; width:100%"><input type="text"  name="line[]" value="' . htmlspecialchars($line) . '"></td></tr>';
+    echo '<tr><td contenteditable="true" style="text-align:left"><input type="text" style="width:100%" name="line[]" value="' . htmlspecialchars($line) . '"></td></tr>';
 
 }
 echo '</table>';

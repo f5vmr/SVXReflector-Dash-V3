@@ -67,9 +67,9 @@ textarea {
 <?php
 $file = '/etc/svxlink/svxlink.conf';
 $lines = file($file);
-echo '<table text-align:left;>';
+echo '<table >';
 foreach ($lines as $line_num => $line) {
-    echo '<tr><td>' . htmlspecialchars($line) . '</td></tr>';
+    echo '<tr><td text-align:left;>' . htmlspecialchars($line) . '</td></tr>';
 }
 echo '</table>';
 ?>

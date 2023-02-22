@@ -2,6 +2,7 @@
 $progname = basename($_SERVER['SCRIPT_FILENAME'],".php");
 include_once 'include/config.php';
 include_once 'include/tools.php';
+include_once 'include/functions.php';
 $svxConfigFile = '/etc/svxlink/svxlink.conf';
 if (fopen($svxConfigFile, 'r')) {
     $svxconfig = parse_ini_file($svxConfigFile, true, INI_SCANNER_RAW);
@@ -107,7 +108,7 @@ include_once __DIR__."/include/buttons.php";
     echo '}'."\n";
     echo 'setTimeout(reloadSVXREF,90000);'."\n";
      }
-     
+    echo &url;
     echo ' $("#edit").load("include/editor.php")'."\n";
     /*
     echo 'function reloadLastHeard(){'."\n";

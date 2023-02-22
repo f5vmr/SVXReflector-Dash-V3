@@ -68,7 +68,7 @@ textarea {
 $file = '/etc/svxlink/svxlink.txt';
 exec('sudo cp $file $file."bak"');
 $lines = file($file);
-echo '<form method="POST">';
+echo '<form method="post">';
 echo '<table>';
 foreach ($lines as $line_num => $line) {
     echo '<tr><td contenteditable="true" style="text-align:left">' . htmlspecialchars($line) . '</td></tr>';
@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($success === false) {
         echo 'Error saving changes to file.';
     } else {
-        exec('sudo chown www-data $file');
+        chown ($file,'www-data');
         exec('sudo systemctl restart svxlink');
         echo 'Changes saved and service restarted.';
     }

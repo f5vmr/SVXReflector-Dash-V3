@@ -87,16 +87,12 @@ include_once __DIR__."/include/buttons.php";
 
     echo '<script type="text/javascript">'."\n";
     echo 'function reloadStatusInfo(){'."\n";
-    echo '$("#statusInfo").load("include/status.php",function(){ setTimeout(reloadStatusInfo,3000) });'."\n";
+    echo '$("#statusInfo").load("include/editor.php",function(){ setTimeout(reloadStatusInfo,3000) });'."\n";
     echo '}'."\n";
     echo 'setTimeout(reloadStatusInfo,3000);'."\n";
     echo '$(window).trigger(\'resize\');'."\n";
     echo '</script>'."\n";
-    echo '<div id="EditInfo" style="margin-bottom:30px;">'."\n";
-    include 'include/editor.php';
-    echo '</div>'."\n";
-    echo '</div>'."\n";
-    echo '</td>'."\n";
+    
     echo '<td valign="top" style="height:auto;border:none;  background-color:#f1f1f1;">';
     echo '<div class="content">'."\n";
     echo '<script type="text/javascript">'."\n";

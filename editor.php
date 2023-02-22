@@ -79,7 +79,7 @@ if (MENUBUTTON=="TOP") {
 include_once __DIR__."/include/buttons.php"; 
 }
 ?>
-<?php
+<?php /*
     echo '<table style="margin-bottom:0px;border:0; border-collapse:collapse; cellspacing:0; cellpadding:0; background-color:#f1f1f1;"><tr style="border:none;background-color:#f1f1f1;">';
     echo '<td width="200px" valign="top" class="hide" style="height:auto;border:0;background-color:#f1f1f1;">';
     echo '<div class="nav" style="margin-bottom:1px;margin-top:10px;">'."\n";
@@ -100,7 +100,7 @@ include_once __DIR__."/include/buttons.php";
     echo '<td valign="top" style="height:auto;border:none;  background-color:#f1f1f1;">';
     echo '<div class="content">'."\n";
     echo '<script type="text/javascript">'."\n";
-/*
+
     if (URLSVXRAPI!="") {
     echo 'function reloadSVXREF(){'."\n";
     echo '  $("#svxref").load("include/svxref.php",function(){ setTimeout(reloadSVXREF,90000) });'."\n";
@@ -124,8 +124,8 @@ include_once __DIR__."/include/buttons.php";
     //include 'include/svxref.php';
     echo '</div></center>'."\n";
     }
-    echo '</td></tr></table>';
-*/ ?>
+    echo '</td></tr></table>';*/
+?>
 
 <?php 
     echo '<div class="content2">'."\n";

@@ -83,7 +83,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($_POST['line'] as $line) {
         $data .= $line . "\n";
     }
-    $success = file_put_contents($file, $data);
+    //$success = file_put_contents($file, $data);
+    echo('line');
     if ($success === false) {
         echo 'Error saving changes to file.';
     } else {

@@ -72,7 +72,8 @@ echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialc
 
 echo '<table>';
 foreach ($lines as $line_num => $line) {
-    echo '<tr><td contenteditable="true" style="text-align:left" name="line[]">' . htmlspecialchars($line) . '</td></tr>';
+    echo '<tr><td contenteditable="true" style="text-align:left"><input type="text" name="line[]" value="' . htmlspecialchars($line) . '"></td></tr>';
+
 }
 echo '</table>';
 echo '<input type="submit" value="Click to Save Changes">';

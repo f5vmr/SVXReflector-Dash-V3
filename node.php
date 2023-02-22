@@ -63,7 +63,7 @@ else { $callsign="NOCALL";
 </div>
 <?php include_once __DIR__."/include/top_menu.php"; ?>
 <div class="content"><center>
-<div style="margin-top:8px;">
+<div style="margin-top:0px;">
 </div></center>
 </div>
 <?php

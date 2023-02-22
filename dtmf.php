@@ -2,8 +2,6 @@
 $progname = basename($_SERVER['SCRIPT_FILENAME'],".php");
 include_once 'include/config.php';
 include_once 'include/tools.php';
-// migrate to external class tbc
-
 $svxConfigFile = '/etc/svxlink/svxlink.conf';
     if (fopen($svxConfigFile,'r'))
        { $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
@@ -72,7 +70,7 @@ $svxConfigFile = '/etc/svxlink/svxlink.conf';
 <?php include_once __DIR__."/include/top_menu.php"; ?>
 
 <div class="content"><center>
-<div style="margin-top:8px;">
+<div style="margin-top:0px;">
 </div></center>
 </div>
 <?php

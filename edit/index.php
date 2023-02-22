@@ -158,7 +158,7 @@ textarea {
 <?php
 $lines = file($file);
 echo '<form method="post">';
-echo '<table>';
+echo '<table scrolling="yes">';
 foreach ($lines as $line_num => $line) {
     echo '<tr><td contenteditable="true" style="text-align:left">' . htmlspecialchars($line) . '</td></tr>';
 }

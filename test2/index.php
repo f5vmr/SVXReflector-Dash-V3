@@ -63,11 +63,11 @@ textarea {
 <div style="padding:0px;width:550px;background-image: linear-gradient(to bottom, #e9e9e9 50%, #bcbaba 100%);border-radius: 10px;-moz-border-radius:10px;-webkit-border-radius:10px;border: 1px solid LightGrey;margin-left:0px; margin-right:0px;margin-top:4px;margin-bottom:0px;line-height:1.6;white-space:normal;">
 <center>
 <h1 id="Edit Config" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Node Info Configurator</h1>
-<div style:"justify";>
+
 <?php
 $file = '/etc/svxlink/svxlink.conf';
 $lines = file($file);
-echo '<table>';
+echo '<table style:"justify";>';
 foreach ($lines as $line_num => $line) {
     echo '<tr><td>' . htmlspecialchars($line) . '</td></tr>';
 }

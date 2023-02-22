@@ -69,7 +69,7 @@ $file = '/etc/svxlink/svxlink.conf';
 $lines = file($file);
 echo '<table >';
 foreach ($lines as $line_num => $line) {
-    echo '<tr><td text-align:left;>' . htmlspecialchars($line) . '</td></tr>';
+    echo '<tr text-align:left;><td >' . htmlspecialchars($line) . '</td></tr>';
 }
 echo '</table>';
 ?>

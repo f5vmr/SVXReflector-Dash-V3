@@ -170,7 +170,7 @@ function cidr_match($ip, $cidr) {
 
     $url=$_SERVER['REQUEST_URI']."/include";
 //    header("Refresh: 10; URL=$url");
-
+echo $file;
 
 $ip = isset($_SERVER['REMOTE_ADDR']); 
 $net1= cidr_match($ip,"192.168.0.0/16");

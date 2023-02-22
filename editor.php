@@ -79,7 +79,7 @@ include_once __DIR__."/include/buttons.php";
 }
 ?>
 <?php
-$id = $_POST['id'];
+$id = $_GET['id'];
 if($id="svxlink") {
     //shell_exec("cd ");
     $file = "/etc/svxlink/svxlink.conf";

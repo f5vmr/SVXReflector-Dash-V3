@@ -180,15 +180,38 @@ $net4= cidr_match($ip,"10.0.0.0/8");
 $net5 = cidr_match($ip, "192.168.1.254/24");
 if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || $net5 == TRUE) {
 ?>
+<?php
+$id = $_POST['id'];
+if($id="svxlink") {
+    //shell_exec("cd ");
+    $file = "/etc/svxlink/svxlink.conf";
+    echo $file;
+}
+if($id="gpio") {
+    //shell_exec("cd ");
+    $file = "/etc/svxlink/gpio.conf";
+    echo $file;
+}
+if($id="echolink"){
+    //shell_exec("cd ");
+    $file = "/etc/svxlink/svxlink.d/ModuleEchoLink.conf";
+    echo $file;
+}
+if($if="metarinfo"){
+    //shell_exec("cd ");
+    $file = "/etc/svxlink/svxlink.dModuleMetarInfo.conf";
+    echo $file;
+}
+?>
 
-<form method="post">
+<!--form method="post">
     <p>
          <center><button style="height: 60px; width: 100px;font-size:25px;" button name="button21">1</button><button style="height: 60px; width: 100px;font-size:25px;" button name="button22">2</button><button style="height: 60px; width: 100px;font-size:25px;" button name="button23">3</button><button style="height: 60px; width: 100px;font-size:25px;" button name="buttonA">A</button></center>
          <center><button style="height: 60px; width: 100px;font-size:25px;" button name="button24">4</button><button style="height: 60px; width: 100px;font-size:25px;" button name="button25">5</button><button style="height: 60px; width: 100px;font-size:25px;" button name="button26">6</button><button style="height: 60px; width: 100px;font-size:25px;" button name="buttonBB">B</button></center>
          <center><button style="height: 60px; width: 100px;font-size:25px;" button name="button27">7</button><button style="height: 60px; width: 100px;font-size:25px;" button name="button28">8</button><button style="height: 60px; width: 100px;font-size:25px;" button name="button29">9</button><button style="height: 60px; width: 100px;font-size:25px;" button name="buttonCC">C</button></center>
          <center><button style="height: 60px; width: 100px;font-size:25px;" button name="button30">*</button><button style="height: 60px; width: 100px;font-size:25px;" button name="button20">0</button><button style="height: 60px; width: 100px;font-size:25px;" button name="button31">#</button><button style="height: 60px; width: 100px;font-size:25px;" button name="buttonDD">D</button></center>
     </p>
-    </form>
+    </form-->
   
 
 <?php

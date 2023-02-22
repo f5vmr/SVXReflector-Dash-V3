@@ -65,21 +65,13 @@ textarea {
 <h1 id="Edit Config" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Node Info Configurator</h1>
 
 <?php
-$file = '/etc/svxlink/svxlink.conf';
-$lines = file($file);
-echo '<table >';
-foreach ($lines as $line_num => $line) {
-    echo '<tr text-align:left;><td >' . htmlspecialchars($line) . '</td></tr>';
-}
-echo '</table>';
-?>
-<?php
+
 $file = '/etc/svxlink/svxlink.conf';
 $lines = file($file);
 echo '<form method="post">';
 echo '<table>';
 foreach ($lines as $line_num => $line) {
-    echo '<tr><td contenteditable="true">' . htmlspecialchars($line) . '</td></tr>';
+    echo '<tr><td contenteditable="true" style="text-align:left">' . htmlspecialchars($line) . '</td></tr>';
 }
 echo '</table>';
 echo '<input type="submit" value="Save Changes">';

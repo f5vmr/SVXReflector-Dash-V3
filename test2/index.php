@@ -84,9 +84,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($_POST['line'] as $line) {
         $data .= $line . "\n";
     }
+    exec('sudo chmod -r 0777 /etc/svxlink');
+    $date=date('d-M-Y');
+    exec('sudo cp $file $file.$date.');    
     file_put_contents($file, $data);
-    exec('systemctl restart svxlink | tail -f /var/log/svxlink.log');
-    echo 'Changes saved and service restarted.';
+
+    exec('sudo systemctl restart svxlink');
+    exec('sudo chmod -r 0755 /etc/svxlink');
+    echo 'All Changes saved and service restarted.';
 }
 
 ?>

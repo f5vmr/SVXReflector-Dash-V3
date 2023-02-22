@@ -95,8 +95,6 @@ include_once __DIR__."/include/buttons.php";
     echo '</div>'."\n";
     echo '</div>'."\n";
     echo '</td>'."\n";
-
-    
     echo '<td valign="middle"  style="height:495px; width=620px; text-align: center; border:none;  background-color:#f1f1f1;">';	
     echo '<iframe src="/edit"  width="615" height="490" title="EDIT"></iframe>';
     echo '</td>';

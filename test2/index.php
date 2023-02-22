@@ -65,7 +65,7 @@ textarea {
 <h1 id="Edit Config" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Node Info Configurator</h1>
 
 <?php
-$file = '/etc/svxlink/svxlink.conf';
+$file = '/etc/svxlink/svxlink.txt';
 exec('sudo cp $file $file."bak"');
 $lines = file($file);
 echo '<form method="post">';

@@ -72,7 +72,7 @@ include_once __DIR__."/include/buttons.php";
 }
 ?>
 
-<html>
+<!--html>
   <head>
     <title>Authorising Access</title>
   </head>
@@ -84,7 +84,7 @@ include_once __DIR__."/include/buttons.php";
       <p><input type="submit" value="Submit"></p>
     </form>
   </body>
-</html>
+</html-->
 
 <?php
 // configuration//

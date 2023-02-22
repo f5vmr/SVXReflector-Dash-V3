@@ -81,24 +81,24 @@ include_once __DIR__."/include/buttons.php";
 <?php
 $id = $_POST['id'];
 if($id="svxlink") {
-    shell_exec("cd /etc/svxlink/");
-    $file = "svxlink.conf";
-    echo "svxlink.conf";
+    //shell_exec("cd ");
+    $file = "/etc/svxlink/svxlink.conf";
+    echo $file;
 }
 if($id="gpio") {
-    shell_exec("cd /etc/svxlink/");
-    $file = "gpio.conf";
-    echo "gpio.conf";
+    //shell_exec("cd ");
+    $file = "/etc/svxlink/gpio.conf";
+    echo $file;
 }
 if($id="echolink"){
-    shell_exec("cd /etc/svxlink/svxlink.d/");
-    $file = "ModuleEchoLink.conf";
-    echo "EchoLink.conf";
+    //shell_exec("cd ");
+    $file = "/etc/svxlink/svxlink.d/ModuleEchoLink.conf";
+    echo $file;
 }
 if($if="metarinfo"){
-    shell_exec("cd /etc/svxlink/svxlink.d");
-    $file = "ModuleMetarInfo.conf";
-    echo "metarinfo.conf";
+    //shell_exec("cd ");
+    $file = "/etc/svxlink/svxlink.dModuleMetarInfo.conf";
+    echo $file;
 }
 // check if form has been submitted
 //$filename = by choice;

@@ -79,6 +79,47 @@ include_once __DIR__."/include/buttons.php";
 }
 ?>
 <?php
+$id = $_POST['id'];
+if($id="svxlink") {
+    shell_exec("cd /etc/svxlink/");
+    $file = "svxlink.conf";
+    echo "svxlink.conf";
+}
+if($id="gpio") {
+    shell_exec("cd /etc/svxlink/");
+    $file = "gpio.conf";
+    echo "gpio.conf";
+}
+if($id="echolink"){
+    shell_exec("cd /etc/svxlink/svxlink.d/");
+    $file = "ModuleEchoLink.conf";
+    echo "EchoLink.conf";
+}
+if($if="metarinfo"){
+    shell_exec("cd /etc/svxlink/svxlink.d");
+    $file = "ModuleMetarInfo.conf";
+    echo "metarinfo.conf";
+}
+// check if form has been submitted
+//$filename = by choice;
+echo $id;
+$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"."editor.php";
+if (isset($_POST['text']))
+{
+    // save the text contents
+    file_put_contents($file, $_POST['text']);
+
+    // redirect to form again
+    header(sprintf('Location: %s', $url));
+    printf('<a href="%s">Moved</a>.', htmlspecialchars($url));
+    exit();
+}
+
+// read the textfile
+$text = file_get_contents($file);
+
+?>
+<?php
     echo '<table style="margin-bottom:0px;border:0; border-collapse:collapse; cellspacing:0; cellpadding:0; background-color:#f1f1f1;"><tr style="border:none;background-color:#f1f1f1;">';
     echo '<td width="200px" valign="top" class="hide" style="height:auto;border:0;background-color:#f1f1f1;">';
     echo '<div class="nav" style="margin-bottom:1px;margin-top:1px;">'."\n";

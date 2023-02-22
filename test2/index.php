@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($_POST['line'] as $line) {
         $data .= $line . "\n";
     }
-    $newfile="/etc/svxlink/svxlink.txt".date($timestamp);
+    $newfile="/etc/svxlink/svxlink.txt1";
     $success = file_put_contents($newfile, $data);
     if ($success === false) {
         echo 'Error saving changes to file.';

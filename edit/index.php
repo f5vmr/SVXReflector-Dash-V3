@@ -180,31 +180,7 @@ $net4= cidr_match($ip,"10.0.0.0/8");
 $net5 = cidr_match($ip, "192.168.1.254/24");
 if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || $net5 == TRUE) {
 ?>
-<div red>
-<?php
-$id = $_POST['id'];
-if($id="svxlink") {
-    //shell_exec("cd ");
-    $file = "/etc/svxlink/svxlink.conf";
-    echo $file;
-}
-if($id="gpio") {
-    //shell_exec("cd ");
-    $file = "/etc/svxlink/gpio.conf";
-    echo $file;
-}
-if($id="echolink"){
-    //shell_exec("cd ");
-    $file = "/etc/svxlink/svxlink.d/ModuleEchoLink.conf";
-    echo $file;
-}
-if($if="metarinfo"){
-    //shell_exec("cd ");
-    $file = "/etc/svxlink/svxlink.dModuleMetarInfo.conf";
-    echo $file;
-}
-?>
-</div>
+<
 <!--form method="post">
     <p>
          <center><button style="height: 60px; width: 100px;font-size:25px;" button name="button21">1</button><button style="height: 60px; width: 100px;font-size:25px;" button name="button22">2</button><button style="height: 60px; width: 100px;font-size:25px;" button name="button23">3</button><button style="height: 60px; width: 100px;font-size:25px;" button name="buttonA">A</button></center>

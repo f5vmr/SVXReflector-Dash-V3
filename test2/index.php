@@ -70,7 +70,7 @@ exec('sudo cp ' . $file . ' ' .$file .'.bak');
 $lines = file($file);
 echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
 
-echo '<table>';
+echo '<table width=60%>';
 foreach ($lines as $line_num => $line) {
     echo '<tr><td contenteditable="true" style="text-align:left"><input type="text" name="line[]" value="' . htmlspecialchars($line) . '"></td></tr>';
 

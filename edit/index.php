@@ -155,7 +155,7 @@ textarea {
 <center>
 <h1 id="edit_info" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Edit Configuration</h1>
 
-<?php
+<!--<?php
 function cidr_match($ip, $cidr) {
     $outcome = false;
     $pattern = '/^(([01]?\d?\d|2[0-4]\d|25[0-5])\.){3}([01]?\d?\d|2[0-4]\d|25[0-5])\/(\d{1}|[0-2]{1}\d{1}|3[0-2])$/';
@@ -179,7 +179,7 @@ $net3= cidr_match($ip,"127.0.0.0/8");
 $net4= cidr_match($ip,"10.0.0.0/8");
 $net5 = cidr_match($ip, "192.168.1.254/24");
 if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || $net5 == TRUE) {
-?>
+?>-->
 <?php
 $file = '/etc/svxlink/svxlink.conf';
 $lines = file($file);

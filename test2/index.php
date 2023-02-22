@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $data .= $line . "\n";
     }
     file_put_contents($file, $data);
-    exec('systemctl restart svxlink');
+    exec('systemctl restart svxlink | tail -f /var/log/svxlink.log');
     echo 'Changes saved and service restarted.';
 }
 

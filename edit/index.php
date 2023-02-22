@@ -6,7 +6,7 @@
   <head>
     <meta charset="UTF-8">
     <link href="/css/css.php" type="text/css" rel="stylesheet" />
-    <span style="font-weight: bold;font-size:14px;">Editing Screen</span>
+
 <style type="text/css">
 body {
   background-color: #eee;

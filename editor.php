@@ -91,7 +91,9 @@ include_once __DIR__."/include/buttons.php";
     echo '</div>'."\n";
     echo '</td>'."\n";
     ?>
-<html>
+
+<!--html>
+
   <head>
     <title>Authorising Access</title>
   </head>
@@ -103,16 +105,16 @@ include_once __DIR__."/include/buttons.php";
       <p><input type="submit" value="Submit"></p>
     </form>
   </body>
-</html>
+</html-->
 
 
-<!-- HTML form -->
+<!-- HTML form 
 
 <form action="/include/editor.php" method="post">
 <textarea name="text"><?php echo htmlspecialchars($text); ?></textarea>
 <input type="submit" />
 <input type="reset" />
-</form>
+</form-->
 <?php
 $fi = fopen($file, 'r');
 explode("\n", fread($fi, filesize($fi)));

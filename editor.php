@@ -98,7 +98,7 @@ elseif($id="metarinfo"){
 }
 // check if form has been submitted
 //$filename = by choice;
-//echo $id;
+echo $file;
 $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"."editor.php";
 if (isset($_POST['text']))
 {

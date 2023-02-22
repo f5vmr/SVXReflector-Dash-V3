@@ -10,7 +10,9 @@ $svxConfigFile = '/etc/svxlink/svxlink.conf';
         $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
         $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];
         $tgUri = $svxconfig['ReflectorLogic']['TG_URI'];
-} else {
+        $node_password = $svxconfig['ReflectorLogic']['AUTH_KEY'];
+        $node_user = $callsign;    
+      } else {
     $callsign = "NOCALL";
     $fmnetwork = "Not Registered";
 }
@@ -71,7 +73,24 @@ if (MENUBUTTON=="TOP") {
 include_once __DIR__."/include/buttons.php"; 
 }
 ?>
+<?php
+    echo '<table style="margin-bottom:0px;border:0; border-collapse:collapse; cellspacing:0; cellpadding:0; background-color:#f1f1f1;"><tr style="border:none;background-color:#f1f1f1;">';
+    echo '<td width="200px" valign="top" class="hide" style="height:auto;border:0;background-color:#f1f1f1;">';
+    echo '<div class="nav" style="margin-bottom:1px;margin-top:10px;">'."\n";
 
+    echo '<script type="text/javascript">'."\n";
+    echo 'function reloadStatusInfo(){'."\n";
+    echo '$("#statusInfo").load("include/status.php",function(){ setTimeout(reloadStatusInfo,3000) });'."\n";
+    echo '}'."\n";
+    echo 'setTimeout(reloadStatusInfo,3000);'."\n";
+    echo '$(window).trigger(\'resize\');'."\n";
+    echo '</script>'."\n";
+    echo '<div id="statusInfo" style="margin-bottom:30px;">'."\n";
+    include 'include/status.php';
+    echo '</div>'."\n";
+    echo '</div>'."\n";
+    echo '</td>'."\n";
+    ?>
 <html>
   <head>
     <title>Authorising Access</title>
@@ -119,3 +138,13 @@ echo '<td valign="middle"  style="height:495px; width=620px; text-align: center;
 echo '<iframe src="/nodeInfo"  style="width:615px; height:490px"></iframe>';
 echo '</td>';
 ?>
+<?php
+if (MENUBUTTON=="BOTTOM") {
+include_once __DIR__."/include/buttons.php"; }
+?>
+<center><span title="Dashboard" style="font: 7pt arial, sans-serif;">SvxLink Dashboard ©  G4NAB, SP2ONG, SP0DZ <?php $cdate=date("Y"); if ($cdate > "2021") {$cdate="2021-".date("Y");} echo $cdate; ?>
+</div>
+</fieldset>
+<br>
+</body>
+</html>

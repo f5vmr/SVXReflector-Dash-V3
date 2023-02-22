@@ -127,7 +127,7 @@ include_once __DIR__."/include/buttons.php";
     echo '</td></tr></table>';
 ?>
 
-<?php
+<?php/*
     echo '<div class="content2">'."\n";
     echo '<script type="text/javascript">'."\n";
     echo 'function reloadSysInfo(){'."\n";
@@ -140,7 +140,7 @@ include_once __DIR__."/include/buttons.php";
     include 'include/system.php';
     echo '</div>'."\n";
     echo '</div>'."\n";
-?>
+*/?>
 <?php
 if (MENUBUTTON=="BOTTOM") {
 include_once __DIR__."/include/buttons.php"; }

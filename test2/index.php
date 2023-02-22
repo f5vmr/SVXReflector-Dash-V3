@@ -83,6 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($_POST['line[]'] as $line) {
         $data .= $line . "\n";
     }
+    var_dump($_POST);
 
     $success = file_put_contents($file, $data);
     if ($success === false) {

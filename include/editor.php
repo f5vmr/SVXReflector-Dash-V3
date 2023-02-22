@@ -1,10 +1,14 @@
 <?php
-include_once 'config.php';
-include_once 'tools.php';
-include_once 'top_menu.php';
-include 'status.php';
-include 'system.php';
+include_once __DIR__.'/config.php';         
+include_once __DIR__.'/tools.php';        
+include_once __DIR__.'/functions.php'; 
+?>
+<span style="font-weight: bold;font-size:14px;">SVXReflector Activity</span>
+<fieldset style=" width:550px;box-shadow:5px 5px 20px #999;background-color:#e8e8e8e8;margin-top:10px;margin-left:0px;margin-right:0px;font-size:12px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+  <form method="post">
+  <table style="margin-top:3px;">
 // configuration//
+<?php
 $id = $_POST['id'];
 if($id="svxlink") {
     shell_exec("cd /etc/svxlink/");
@@ -45,15 +49,11 @@ if (isset($_POST['text']))
 $text = file_get_contents($file);
 
 ?>
-<!-- HTML form -->
-<form action="/include/editor.php" method="post">
-<textarea name="text"><?php echo htmlspecialchars($text); ?></textarea>
-<input type="submit" />
-<input type="reset" />
-</form>
+
 <?php
 $fi = fopen($file, 'r');
 explode("\n", fread($fi, filesize($fi)));
 print_r($fi, true);
 
 ?>
+  </table></form></fieldset>

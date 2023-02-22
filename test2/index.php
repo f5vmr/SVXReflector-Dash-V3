@@ -80,7 +80,7 @@ echo '</form>';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = '';
-    foreach ($_POST[$key] as $line) {
+    foreach ($_POST['line[]'] as $line) {
         $data .= $line . "\n";
     }
 

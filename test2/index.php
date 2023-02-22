@@ -68,11 +68,11 @@ textarea {
 $file = '/etc/svxlink/svxlink.txt';
 exec('sudo cp $file $file."bak"');
 $lines = file($file);
-echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '" >';
+echo '<form method="post" enctype="multipart/form-data action="' . $_SERVER['PHP_SELF'] . '" >';
 
 echo '<table>';
 foreach ($lines as $line_num => $line) {
-    echo '<tr><td contenteditable="true" style="text-align:left">' . htmlspecialchars($line) . '</td></tr>';
+    echo '<tr><td contenteditable="true" style="text-align:left" name="line[]">' . htmlspecialchars($line) . '</td></tr>';
 }
 echo '</table>';
 echo '<input type="submit" value="Save Changes">';

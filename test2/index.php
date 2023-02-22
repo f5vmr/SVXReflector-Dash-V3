@@ -80,11 +80,11 @@ echo '</form>';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = '';
-    foreach ($_POST['line'] as $line) {
+    foreach ($_POST[$key] as $line) {
         $data .= $line . "\n";
     }
-    $newfile="/etc/svxlink/svxlink.txt1";
-    $success = file_put_contents($newfile, $data);
+
+    $success = file_put_contents($file, $data);
     if ($success === false) {
         echo 'Error saving changes to file.';
     } else {

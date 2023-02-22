@@ -96,7 +96,7 @@ include_once __DIR__."/include/buttons.php";
     echo '</div>'."\n";
     echo '</div>'."\n";
     echo '</td>'."\n";
-
+/*
     echo '<td valign="top" style="height:auto;border:none;  background-color:#f1f1f1;">';
     echo '<div class="content">'."\n";
     echo '<script type="text/javascript">'."\n";
@@ -125,9 +125,9 @@ include_once __DIR__."/include/buttons.php";
     echo '</div></center>'."\n";
     }
     echo '</td></tr></table>';
-?>
+*/ ?>
 
-<?php /*
+<?php 
     echo '<div class="content2">'."\n";
     echo '<script type="text/javascript">'."\n";
     echo 'function reloadSysInfo(){'."\n";
@@ -140,7 +140,7 @@ include_once __DIR__."/include/buttons.php";
     include 'include/system.php';
     echo '</div>'."\n";
     echo '</div>'."\n";
-*/?>
+?>
 <?php
 if (MENUBUTTON=="BOTTOM") {
 include_once __DIR__."/include/buttons.php"; }

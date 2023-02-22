@@ -41,8 +41,9 @@ include_once('parse_svxconf.php')
 	<a href="/log.php" style="color: #0000ff;">Log</a> |
 	<a href="/power.php" style="color: #0000ff;">Power</a> 
 	<p style="padding-right: 5px; text-align: right; color: #000000;" <a style="color: black;">Full Edit</a> |
-	<a href="/editor.php" style="color: crimson;" id="svxlink">SVXLink </a> |
-	<a href="/editor.php" style="color: crimson;" id="gpio">GPIO</a>|
-	<a href="/editor.php" style="color: crimson;" id="echolink">EchoLink</a>|
-	<a href="/editor.php" style="color: crimson;" id="metarinfo">MetarInfo</a></p>
+	<a href="/editor.php?id" style="color: crimson;" id="svxlink">SVXLink </a> |
+	<a href="/editor.php?id" style="color: crimson;" id="gpio">GPIO</a>|
+	<a href="/editor.php?id" style="color: crimson;" id="echolink">EchoLink</a>|
+	<a href="/editor.php?id" style="color: crimson;" id="metarinfo">MetarInfo</a></p>
+	<!--a href="/editor.php?varName=varValue" style="color: crimson;" id="gpio">GPIO</a-->
 </p>

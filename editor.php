@@ -107,7 +107,7 @@ include_once __DIR__."/include/buttons.php";
     echo '}'."\n";
     echo 'setTimeout(reloadSVXREF,90000);'."\n";
      }
-    echo &url;
+    echo $url;
     echo ' $("#edit").load("include/editor.php")'."\n";
     /*
     echo 'function reloadLastHeard(){'."\n";

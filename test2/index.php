@@ -67,7 +67,7 @@ textarea {
 <?php
 $file = '/etc/svxlink/svxlink.conf';
 $lines = file($file);
-echo '<table style:"justify";>';
+echo '<table text-align:left;>';
 foreach ($lines as $line_num => $line) {
     echo '<tr><td>' . htmlspecialchars($line) . '</td></tr>';
 }

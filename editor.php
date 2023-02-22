@@ -85,17 +85,17 @@ if($id="svxlink") {
     $file = "/etc/svxlink/svxlink.conf";
     echo $file;
 }
-if($id="gpio") {
+elseif($id="gpio") {
     //shell_exec("cd ");
     $file = "/etc/svxlink/gpio.conf";
     echo $file;
 }
-if($id="echolink"){
+elseif($id="echolink"){
     //shell_exec("cd ");
     $file = "/etc/svxlink/svxlink.d/ModuleEchoLink.conf";
     echo $file;
 }
-if($if="metarinfo"){
+elseif($id="metarinfo"){
     //shell_exec("cd ");
     $file = "/etc/svxlink/svxlink.dModuleMetarInfo.conf";
     echo $file;

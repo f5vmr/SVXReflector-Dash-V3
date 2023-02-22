@@ -79,20 +79,20 @@ include_once __DIR__."/include/buttons.php";
 }
 ?>
 <?php
-$id = $_GET['id'];
-if($id="svxlink") {
+
+if($_GET['id']="svxlink") {
     //shell_exec("cd ");
     $file = "/etc/svxlink/svxlink.conf";
 }
-elseif($id="gpio") {
+elseif($_GET['id']="gpio") {
     //shell_exec("cd ");
     $file = "/etc/svxlink/gpio.conf";
 }
-elseif($id="echolink"){
+elseif($_GET['id']="echolink"){
     //shell_exec("cd ");
     $file = "/etc/svxlink/svxlink.d/ModuleEchoLink.conf";
 }
-elseif($id="metarinfo"){
+elseif($_GET['id']="metarinfo"){
     //shell_exec("cd ");
     $file = "/etc/svxlink/svxlink.dModuleMetarInfo.conf";
 
@@ -100,7 +100,7 @@ elseif($id="metarinfo"){
 
 // check if form has been submitted
 //$filename = by choice;
-
+/*
 $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"."editor.php";
 if (isset($_POST['text']))
 {
@@ -112,7 +112,7 @@ if (isset($_POST['text']))
     printf('<a href="%s">Moved</a>.', htmlspecialchars($url));
     exit();
 }
-
+*/
 // read the textfile
 $text = file_get_contents($file);
 

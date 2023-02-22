@@ -181,7 +181,7 @@ $net5 = cidr_match($ip, "192.168.1.254/24");
 if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || $net5 == TRUE) {
 ?>-->
 <?php
-$file = '/etc/svxlink/svxlink.conf';
+//$file = chosen by menu;
 $lines = file($file);
 echo '<table>';
 foreach ($lines as $line_num => $line) {

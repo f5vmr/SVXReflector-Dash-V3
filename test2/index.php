@@ -81,7 +81,7 @@ echo '</form>';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = '';
     foreach ($_POST['line'] as $line) {
-        $data .= $line . "\n";
+        $data = $line . "\n";
     }
     var_dump($_POST);
 

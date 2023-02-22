@@ -82,11 +82,11 @@ include_once __DIR__."/include/buttons.php";
 <?php
     echo '<table style="margin-bottom:0px;border:0; border-collapse:collapse; cellspacing:0; cellpadding:0; background-color:#f1f1f1;"><tr style="border:none;background-color:#f1f1f1;">';
     echo '<td width="200px" valign="top" class="hide" style="height:auto;border:0;background-color:#f1f1f1;">';
-    echo '<div class="nav" style="margin-bottom:1px;margin-top:10px;">'."\n";
+    echo '<div class="nav" style="margin-bottom:1px;margin-top:1px;">'."\n";
 
     echo '<script type="text/javascript">'."\n";
     echo 'function reloadStatusInfo(){'."\n";
-    echo '$("#statusInfo").load("include/status.php",function(){ setTimeout(reloadStatusInfo,3000) });'."\n";
+    echo '  $("#statusInfo").load("include/status.php",function(){ setTimeout(reloadStatusInfo,3000) });'."\n";
     echo '}'."\n";
     echo 'setTimeout(reloadStatusInfo,3000);'."\n";
     echo '$(window).trigger(\'resize\');'."\n";
@@ -97,39 +97,11 @@ include_once __DIR__."/include/buttons.php";
     echo '</div>'."\n";
     echo '</td>'."\n";
 
-    echo '<td valign="top" style="height:auto;border:none;  background-color:#f1f1f1;">';
-    echo '<div class="content">'."\n";
-    echo '<script type="text/javascript">'."\n";
-
-    if (URLSVXRAPI!="") {
-    echo 'function reloadSVXREF(){'."\n";
-    echo '  $("#svxref").load("include/svxref.php",function(){ setTimeout(reloadSVXREF,90000) });'."\n";
-    echo '}'."\n";
-    echo 'setTimeout(reloadSVXREF,90000);'."\n";
-     }
-    echo $url;
-    //echo ' $("#edit").load("include/editor.php")'."\n";
-    /*
-    echo 'function reloadLastHeard(){'."\n";
-    echo '  $("#LastHeard").load("include/lh.php",function(){ setTimeout(reloadLastHeard,3000) });'."\n";
-    echo '}'."\n";
-    echo 'setTimeout(reloadLastHeard,3000);'."\n";
-*/
-    echo '$(window).trigger(\'resize\');'."\n";
-    echo '</script>'."\n";
-    /*
-    echo '<center><div id="LastHeard" style="margin-bottom:30px;">'."\n";
-    include 'include/lh.php'; */
-    echo '</div></center>'."\n";
-    echo "<br />\n";
-    if (URLSVXRAPI!="") {
-    echo '<center><div id="svxref" style="margin-bottom:30px;">'."\n";
-    //include 'include/svxref.php';
-    echo '</div></center>'."\n";
-    }
-    echo '</td></tr></table>';
+    echo '<td valign="middle"  style="height:495px; width=620px; text-align: center; border:none;  background-color:#f1f1f1;">';	
+    echo '<iframe src="/edit"  width="615" height="490" title="EDIT"></iframe>';
+    echo '</td>';
 ?>
-
+</tr></table>
 <?php
     echo '<div class="content2">'."\n";
     echo '<script type="text/javascript">'."\n";

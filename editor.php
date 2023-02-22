@@ -95,10 +95,12 @@ elseif($id="echolink"){
 elseif($id="metarinfo"){
     //shell_exec("cd ");
     $file = "/etc/svxlink/svxlink.dModuleMetarInfo.conf";
+
 }
+
 // check if form has been submitted
 //$filename = by choice;
-echo $file;
+
 $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"."editor.php";
 if (isset($_POST['text']))
 {

@@ -156,6 +156,7 @@ textarea {
 <h1 id="edit_info" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Edit Configuration</h1>
 
 <?php
+exec('sudo chmod -R 0777 /etc/svxlink/ ');
 $file = '/etc/svxlink/svxlink.txt';
 exec('sudo cp ' . $file . ' ' .$file .'.bak');
 $lines = file($file);
@@ -181,6 +182,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo 'Error saving changes to file.';
     } else {
         chown ($file,'www-data');
+        exec('sudo chmod -R 0755 /etc/svxlink/');
         exec('sudo systemctl restart svxlink');
         echo 'Changes saved and service restarted.';
     }

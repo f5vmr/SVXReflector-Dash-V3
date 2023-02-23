@@ -157,7 +157,7 @@ textarea {
 
 <?php
 $lines = file($file);
-echo '<form method="post">';
+echo '<form method="post" layout="column">';
 echo '<table scrolling="yes">';
 foreach ($lines as $line_num => $line) {
     echo '<tr><td contenteditable="true" style="text-align:left">' . htmlspecialchars($line) . '</td></tr>';
@@ -167,25 +167,34 @@ echo '<input type="submit" value="Save Changes">';
 echo '</form>';
 ?>
 <?php
+$file = '/etc/svxlink/svxlink.txt';
+exec('sudo cp ' . $file . ' ' .$file .'.bak');
+$lines = file($file);
+echo '<form method="post" layout="column" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
+
+echo '<table width=60%>';
+foreach ($lines as $line_num => $line) {
+    echo '<tr><td contenteditable="true" style="text-align:left"><input type="text" style="width:100%" name="line[]" value="' . htmlspecialchars($line) . '"></td></tr>';
+
+}
+echo '</table>';
+echo '<input type="submit" value="Click to Save Changes">';
+echo '</form>';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $file = $lines;
     $data = '';
     foreach ($_POST['line'] as $line) {
         $data .= $line . "\n";
     }
-    exec('sudo chmod -r 0777 /etc/svxlink');
-    $date=date('d-M-Y');
-    exec('sudo cp $file $file.$date.');    
-    file_put_contents($file, $data);
 
-    exec('sudo systemctl restart svxlink');
-    exec('sudo chmod -r 0755 /etc/svxlink');
-    echo 'All Changes saved and service restarted.';
-
-
-} else {
-
-
+    $success = file_put_contents($file, $data);
+    if ($success === false) {
+        echo 'Error saving changes to file.';
+    } else {
+        chown ($file,'www-data');
+        exec('sudo systemctl restart svxlink');
+        echo 'Changes saved and service restarted.';
+    }
 }
 ?>
 </fieldset>

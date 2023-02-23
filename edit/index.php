@@ -199,8 +199,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
 }
-//header('Location: ' . $_SERVER['PHP_SELF']);
-echo "<meta http-equiv='refresh' content='0'>";
+Header('Location: ' . $_SERVER['PHP_SELF']);
+//echo "<meta http-equiv='refresh' content='0'>";
 exit(); 
 ?>
 </fieldset>

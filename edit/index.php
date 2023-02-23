@@ -156,21 +156,10 @@ textarea {
 <h1 id="edit_info" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Edit Configuration</h1>
 
 <?php
-$lines = file($file);
-echo '<form method="post" layout="column">';
-echo '<table scrolling="yes">';
-foreach ($lines as $line_num => $line) {
-    echo '<tr><td contenteditable="true" style="text-align:left">' . htmlspecialchars($line) . '</td></tr>';
-}
-echo '</table>';
-echo '<input type="submit" value="Save Changes">';
-echo '</form>';
-?>
-<?php
 $file = '/etc/svxlink/svxlink.txt';
 exec('sudo cp ' . $file . ' ' .$file .'.bak');
 $lines = file($file);
-echo '<form method="post" layout="column" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
+echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
 
 echo '<table width=60%>';
 foreach ($lines as $line_num => $line) {

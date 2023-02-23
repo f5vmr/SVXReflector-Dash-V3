@@ -161,7 +161,6 @@ echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialc
 echo '<table width=62%>';
 foreach ($lines as $line_num => $line) {
     echo '<tr><td contenteditable="true" style="text-align:left"><input type="text" style="width:100%" name="line[]" value="' . htmlspecialchars($line) . '"></td></tr>';
-
 }
 echo '</table>';
 echo '<input type="submit" value="Click to Save Changes">';
@@ -180,12 +179,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         chown ($edit_file,'www-data');
         exec('sudo -S chmod -R 0755 /etc/svxlink/');
         exec('sudo  systemctl restart svxlink');
-        //echo 'Changes saved and service restarted.';
+        echo 'Changes saved and service restarted.';
     }
     
 }
-Header('Location: ' . $_SERVER['PHP_SELF']);
-exit(); 
+//Header('Location: ' . $_SERVER['PHP_SELF']);
+//exit(); 
 ?>
 </fieldset>
 </body>

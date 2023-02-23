@@ -156,7 +156,14 @@ textarea {
 <h1 id="edit_info" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Edit Configuration</h1>
 
 <?php
-exec('sudo chmod -R 0777 /etc/svxlink/ ');
+$output = array();
+$error_code = 0;
+exec('sudo chmod -R 0777 /path/to/directory 2>&1', $output, $error_code);
+if ($error_code !== 0) {
+    echo "Error: " . implode("\n", $output);
+} else {
+    echo "Command executed successfully.";
+}
 $file = '/etc/svxlink/svxlink.txt';
 exec('sudo cp ' . $file . ' ' .$file .'.bak');
 $lines = file($file);

@@ -166,7 +166,7 @@ if ($error_code !== 0) {
 } else {
     echo "Command executed successfully.";
 }*/
-
+$edit_file=$_GET['file'];
 echo "editing " . $edit_file ;
 exec('sudo cp ' . $edit_file . ' ' .$edit_file .'.bak');
 $lines = file($edit_file);

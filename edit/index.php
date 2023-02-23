@@ -150,22 +150,22 @@ textarea {
 </head>
 <body style="background-color: #e1e1e1;font: 11pt arial, sans-serif;">
 <center>
-<fieldset style="border:#3083b8 2px groove;box-shadow:5px 5px 20px #999; background-color:#f1f1f1; width:555px;margin-top:15px;margin-left:0px;margin-right:5px;font-size:13px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
-<div style="padding:0px;width:550px;background-image: linear-gradient(to bottom, #e9e9e9 50%, #bcbaba 100%);border-radius: 10px;-moz-border-radius:10px;-webkit-border-radius:10px;border: 1px solid LightGrey;margin-left:0px; margin-right:0px;margin-top:4px;margin-bottom:0px;line-height:1.6;white-space:normal;">
+<fieldset style="border:#3083b8 2px groove;box-shadow:5px 5px 20px #999; background-color:#f1f1f1; width:600px;margin-top:15px;margin-left:0px;margin-right:5px;font-size:13px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+<div style="padding:0px;width:580px;background-image: linear-gradient(to bottom, #e9e9e9 50%, #bcbaba 100%);border-radius: 10px;-moz-border-radius:10px;-webkit-border-radius:10px;border: 1px solid LightGrey;margin-left:0px; margin-right:0px;margin-top:4px;margin-bottom:0px;line-height:1.6;white-space:normal;">
 
 <h1 id="edit_info" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Edit Configuration</h1>
 
 <?php
 $password = "www-data";
 $command = "echo '$password' | sudo -S chmod -R 0777 /etc/svxlink/";
-$output = array();
+/*$output = array();
 $error_code = 0;
 exec($command, $output, $error_code);
 if ($error_code !== 0) {
     echo "Error: " . implode("\n", $output);
 } else {
     echo "Command executed successfully.";
-}
+}*/
 $file = '/etc/svxlink/svxlink.txt';
 exec('sudo cp ' . $file . ' ' .$file .'.bak');
 $lines = file($file);
@@ -191,8 +191,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo 'Error saving changes to file.';
     } else {
         chown ($file,'www-data');
-        exec('sudo chmod -R 0755 /etc/svxlink/');
-        exec('sudo systemctl restart svxlink');
+        exec('sudo -S chmod -R 0755 /etc/svxlink/');
+        exec('sudo  systemctl restart svxlink');
         echo 'Changes saved and service restarted.';
     }
     

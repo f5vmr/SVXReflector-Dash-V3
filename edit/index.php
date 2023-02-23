@@ -171,8 +171,7 @@ echo "editing " . $edit_file ;
 exec('sudo cp ' . $edit_file . ' ' .$edit_file .'.bak');
 $lines = file($edit_file);
 echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
-
-echo '<table width=60%>';
+echo '<table width=62%>';
 foreach ($lines as $line_num => $line) {
     echo '<tr><td contenteditable="true" style="text-align:left"><input type="text" style="width:100%" name="line[]" value="' . htmlspecialchars($line) . '"></td></tr>';
 

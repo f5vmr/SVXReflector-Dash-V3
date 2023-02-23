@@ -195,9 +195,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exec('sudo systemctl restart svxlink');
         echo 'Changes saved and service restarted.';
     }
-    header('Location: ' . $_SERVER['PHP_SELF']);
-    exit();
+    
 }
+header('Location: ' . $_SERVER['PHP_SELF']);
+    exit();
 ?>
 </fieldset>
 </body>

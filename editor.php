@@ -80,19 +80,19 @@ include_once __DIR__."/include/buttons.php";
 ?>
 <?php
 
-if($_GET['id']="svxlink") {
+if($_GET['id']=="svxlink") {
     //shell_exec("cd ");
     $file = "/etc/svxlink/svxlink.conf";
 }
-elseif($_GET['id']="gpio") {
+elseif($_GET['id']=="gpio") {
     //shell_exec("cd ");
     $file = "/etc/svxlink/gpio.conf";
 }
-elseif($_GET['id']="echolink"){
+elseif($_GET['id']=="echolink"){
     //shell_exec("cd ");
     $file = "/etc/svxlink/svxlink.d/ModuleEchoLink.conf";
 }
-elseif($_GET['id']="metarinfo"){
+elseif($_GET['id']=="metarinfo"){
     //shell_exec("cd ");
     $file = "/etc/svxlink/svxlink.dModuleMetarInfo.conf";
 

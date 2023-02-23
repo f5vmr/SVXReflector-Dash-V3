@@ -166,6 +166,7 @@ if ($error_code !== 0) {
 } else {
     echo "Command executed successfully.";
 }*/
+
 $file = '/etc/svxlink/svxlink.txt';
 exec('sudo cp ' . $file . ' ' .$file .'.bak');
 $lines = file($file);
@@ -197,7 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
 }
-header($_SERVER['REQUEST_METHOD'] === 'POST');
+header("Refresh:0");
     exit();
 ?>
 </fieldset>

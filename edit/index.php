@@ -167,7 +167,7 @@ if ($error_code !== 0) {
     echo "Command executed successfully.";
 }*/
 
-$file = '/etc/svxlink/svxlink.txt';
+echo "editing ".$file ;
 exec('sudo cp ' . $file . ' ' .$file .'.bak');
 $lines = file($file);
 echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';

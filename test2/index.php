@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    
     <link href="/css/css.php" type="text/css" rel="stylesheet" />
 <style type="text/css">
 body {

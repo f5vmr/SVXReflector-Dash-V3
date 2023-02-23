@@ -1,12 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" lang="en">
-
-
   <head>
     <meta charset="UTF-8">
     <link href="/css/css.php" type="text/css" rel="stylesheet" />
-
 <style type="text/css">
 body {
   background-color: #eee;
@@ -45,8 +42,6 @@ pre {
     overflow: hidden;
     direction: ltl;
 }
-
-
 .button {
   border: none;
   color: #454545;
@@ -170,8 +165,6 @@ foreach ($lines as $line_num => $line) {
 }
 echo '</table>';
 echo '<input type="submit" value="Click to Save Changes">';
-
-
 echo '</form>';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -180,11 +173,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $data .= $line . "\n";
     }
 
-    $success = file_put_contents($new_file, $data);
+    $success = file_put_contents($edit_file, $data);
     if ($success === false) {
         echo 'Error saving changes to file.';
     } else {
-        chown ($new_file,'www-data');
+        chown ($edit_file,'www-data');
         exec('sudo -S chmod -R 0755 /etc/svxlink/');
         exec('sudo  systemctl restart svxlink');
         //echo 'Changes saved and service restarted.';

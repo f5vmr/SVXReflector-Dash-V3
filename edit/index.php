@@ -197,7 +197,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
 }
-header($_SERVER['PHP_SELF']);
+header($_SERVER['REQUEST_METHOD']);
     exit();
 ?>
 </fieldset>

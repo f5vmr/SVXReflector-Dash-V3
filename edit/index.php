@@ -167,9 +167,9 @@ if ($error_code !== 0) {
     echo "Command executed successfully.";
 }*/
 
-echo "editing ".$file ;
-exec('sudo cp ' . $file . ' ' .$file .'.bak');
-$lines = file($file);
+echo "editing ".$edit_file ;
+exec('sudo cp ' . $edit_file . ' ' .$edit_file .'.bak');
+$lines = file($edit_file);
 echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
 
 echo '<table width=60%>';
@@ -187,11 +187,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $data .= $line . "\n";
     }
 
-    $success = file_put_contents($file, $data);
+    $success = file_put_contents($new_file, $data);
     if ($success === false) {
         echo 'Error saving changes to file.';
     } else {
-        chown ($file,'www-data');
+        chown ($new_file,'www-data');
         exec('sudo -S chmod -R 0755 /etc/svxlink/');
         exec('sudo  systemctl restart svxlink');
         echo 'Changes saved and service restarted.';

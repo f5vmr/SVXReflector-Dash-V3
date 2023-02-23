@@ -82,19 +82,19 @@ include_once __DIR__."/include/buttons.php";
 
 if($_GET['id']=="svxlink") {
     //shell_exec("cd ");
-    $file = "/etc/svxlink/svxlink.conf";
+    $edit_file = "/etc/svxlink/svxlink.conf";
 }
 elseif($_GET['id']=="gpio") {
     //shell_exec("cd ");
-    $file = "/etc/svxlink/gpio.conf";
+    $edit_file = "/etc/svxlink/gpio.conf";
 }
 elseif($_GET['id']=="echolink"){
     //shell_exec("cd ");
-    $file = "/etc/svxlink/svxlink.d/ModuleEchoLink.conf";
+    $edit_file = "/etc/svxlink/svxlink.d/ModuleEchoLink.conf";
 }
 elseif($_GET['id']=="metarinfo"){
     //shell_exec("cd ");
-    $file = "/etc/svxlink/svxlink.dModuleMetarInfo.conf";
+    $edit_file = "/etc/svxlink/svxlink.dModuleMetarInfo.conf";
 
 }
 

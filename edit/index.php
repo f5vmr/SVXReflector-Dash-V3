@@ -158,14 +158,6 @@ textarea {
 <?php
 $password = "www-data";
 $command = "echo '$password' | sudo -S chmod -R 0777 /etc/svxlink/";
-/*$output = array();
-$error_code = 0;
-exec($command, $output, $error_code);
-if ($error_code !== 0) {
-    echo "Error: " . implode("\n", $output);
-} else {
-    echo "Command executed successfully.";
-}*/
 $edit_file=$_GET['file'];
 echo "editing " . $edit_file ;
 exec('sudo cp ' . $edit_file . ' ' .$edit_file .'.bak');
@@ -200,7 +192,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 }
 Header('Location: ' . $_SERVER['PHP_SELF']);
-//echo "<meta http-equiv='refresh' content='0'>";
 exit(); 
 ?>
 </fieldset>

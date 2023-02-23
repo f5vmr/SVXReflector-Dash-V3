@@ -179,8 +179,7 @@ foreach ($lines as $line_num => $line) {
 echo '</table>';
 echo '<input type="submit" value="Click to Save Changes">';
 
-echo "<meta http-equiv='refresh' content='0'>";
-exit();
+
 echo '</form>';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -201,7 +200,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 }
 //header('Location: ' . $_SERVER['PHP_SELF']);
-    
+echo "<meta http-equiv='refresh' content='0'>";
+exit(); 
 ?>
 </fieldset>
 </body>

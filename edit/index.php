@@ -197,7 +197,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
 }
-header($_SERVER['REQUEST_METHOD']);
+header($_SERVER['REQUEST_METHOD'] === 'POST');
     exit();
 ?>
 </fieldset>

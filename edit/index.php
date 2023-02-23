@@ -167,7 +167,7 @@ if ($error_code !== 0) {
     echo "Command executed successfully.";
 }*/
 
-echo "editing ".$edit_file ;
+echo "editing " . $edit_file ;
 exec('sudo cp ' . $edit_file . ' ' .$edit_file .'.bak');
 $lines = file($edit_file);
 echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';

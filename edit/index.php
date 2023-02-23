@@ -158,7 +158,7 @@ textarea {
 <?php
 $output = array();
 $error_code = 0;
-exec('sudo chmod -R 0777 /path/to/directory 2>&1', $output, $error_code);
+exec('sudo chmod -R 0777 /etc/svxlink/ 2>&1', $output, $error_code);
 if ($error_code !== 0) {
     echo "Error: " . implode("\n", $output);
 } else {

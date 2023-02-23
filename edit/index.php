@@ -178,6 +178,9 @@ foreach ($lines as $line_num => $line) {
 }
 echo '</table>';
 echo '<input type="submit" value="Click to Save Changes">';
+
+echo "<meta http-equiv='refresh' content='0'>";
+exit();
 echo '</form>';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -193,12 +196,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         chown ($new_file,'www-data');
         exec('sudo -S chmod -R 0755 /etc/svxlink/');
         exec('sudo  systemctl restart svxlink');
-        echo 'Changes saved and service restarted.';
+        //echo 'Changes saved and service restarted.';
     }
     
 }
-header('Location: ' . $_SERVER['PHP_SELF']);
-    exit();
+//header('Location: ' . $_SERVER['PHP_SELF']);
+    
 ?>
 </fieldset>
 </body>

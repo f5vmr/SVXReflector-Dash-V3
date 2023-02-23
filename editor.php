@@ -136,7 +136,7 @@ if (isset($_POST['text']))
     echo '</td>'."\n";
     echo '<td valign="middle"  style="height:495px; width=640px; text-align: center; border:none;  background-color:#f1f1f1;">';	
     //echo '<iframe src="/edit"  width="625" height="490" title="EDIT"></iframe>';
-    echo $file
+    echo $file;
     echo '</td>';
 ?>
 </tr></table>

@@ -157,10 +157,10 @@ $password = "www-data";
 $command = "echo '$password' | sudo -S chmod -R 777 /etc/svxlink/";
 exec($command);
 $edit_file=$_GET['file'];
-exec('sudo cp ' . $edit_file . ' ' .$edit_file .'.bak');
-$lines = file($edit_file);
+exec('sudo cp ' . $file . ' ' .$file .'.bak');
+$lines = file($file);
 echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
-echo '<table width=62%>';
+echo '<table width=60%>';
 foreach ($lines as $line_num => $line) {
     echo '<tr><td contenteditable="true" style="text-align:left"><input type="text" style="width:100%" name="line[]" value="' . htmlspecialchars($line) . '"></td></tr>';
 }
@@ -174,18 +174,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $data .= $line . "\n";
     }
 
-    $success = file_put_contents($edit_file, $data);
+    $success = file_put_contents($file, $data);
     if ($success === false) {
         echo 'Error saving changes to file.';
     } else {
-        chown ($edit_file,'www-data');
-        $command1="chown www-data" . $edit_file;
-        exec('sudo chown . $command1' ); 
-        exec('sudo -S chmod -R 777 /etc/svxlink/');
-        exec('sudo  systemctl restart svxlink');
+        chown ($file,'www-data');
+        exec('sudo systemctl restart svxlink');
         echo 'Changes saved and service restarted.';
     }
-    
 }
 Header('Location: ' . htmlspecialchars($_SERVER['PHP_SELF']));
 exit(); 

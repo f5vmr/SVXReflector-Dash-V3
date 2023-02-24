@@ -174,6 +174,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = '';
     foreach ($_POST['line'] as $line) {
         $data .= $line . "\n";
+        echo $data;
     }
 
     $success = file_put_contents($file, $data);

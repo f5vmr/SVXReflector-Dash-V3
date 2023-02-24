@@ -160,7 +160,8 @@ include_once('include/functions.php');
 //$svxConfigFile = '/etc/svxlink/svxlink.conf';
 $nodeInfoFile = '/etc/svxlink/node_info.json';
 //$svxConfigFile = '/var/www/html/svxlink.conf';    
-
+echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
+echo '<table width=60%>';
 
 if (fopen($nodeInfoFile,'r'))
 {

@@ -247,7 +247,7 @@ if (isset($_POST['btnSave']))
 <table>
         <tr>
         <th width = "640px">Node Info Input</th>
-	<th width = "100px">Action</th>
+	<th width = "625px">Action</th>
         </tr>
 <tr>
 <TD>

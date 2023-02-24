@@ -15,7 +15,7 @@
 	<a href="/editor.php?id=gpio" style="color: crimson;" id="gpio">GPIO</a> |
 	<a href="/editor.php?id=echolink" style="color: crimson;" id="echolink">EchoLink</a> |
 	<a href="/editor.php?id=metarinfo" style="color: crimson;" id="metarinfo">MetarInfo</a> |
-	<a href="/editor.php?id=nodeInfo" style="color: crimson;" id="nodeInfo">NodeInfo</a></p>
+	<a href="/nodeInfo.php?id=nodeInfo" style="color: crimson;" id="nodeInfo">NodeInfo</a></p>
 	
 </p>
 	 

@@ -42,7 +42,97 @@ pre {
     overflow: hidden;
     direction: ltl;
 }
+.button {
+  border: none;
+  color: #454545;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.buttonh {
+  background-image: linear-gradient(to bottom, #337ab7 0%, #265a88 100%);color:#454545;
+  color: #454545;
+}
 
+.buttonh:hover {
+  background-color: #4CAF50;
+  color: #454545;
+}
+.green
+{
+  background-color: #448f47;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 4px 12px;
+  text-decoration: none;
+  margin: 4px 4px;
+  cursor: pointer;
+  border-radius: 4px;
+
+}
+
+.blue
+{
+  background-image: linear-gradient(to bottom, #337ab7 0%, #265a88 100%);color:#454545;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 4px 12px;
+  text-decoration: none;
+  margin: 4px 4px;
+  cursor: pointer;
+  border-radius: 4px;
+  height:80px;
+  width:150px;
+}
+
+.red
+{
+  background-color: #b00;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 4px 12px;
+  text-decoration: none;
+  margin: 4px 4px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.orange
+{
+  background-color: DarkOrange;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 4px 12px;
+  text-decoration: none;
+  margin: 4px 4px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.purple
+{
+  background-color: #800080;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 4px 12px;
+  text-decoration: none;
+  margin: 4px 4px;
+  cursor: pointer;
+  border-radius: 4px;
+}
 textarea {
     background-color: #111;
     border: 1px solid #000;

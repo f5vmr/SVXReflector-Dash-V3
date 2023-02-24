@@ -16,7 +16,7 @@ define("REPORT_CTCSS","");
 define("DTMF_CTRL_PTY","");
 define("API","");
 define("FMNET","");
-define("TG_URI","");
+define("TG_URI","NULL");
 define("NODE_INFO_FILE","");
 define("RF_MODULE","");
 

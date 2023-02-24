@@ -158,7 +158,7 @@ textarea {
 <?php
 include_once('include/functions.php');
 //$svxConfigFile = '/etc/svxlink/svxlink.conf';
-$nodeInfoFile = $edit_file;
+$nodeInfoFile = $_GET['file'];
 //$svxConfigFile = '/var/www/html/svxlink.conf';    
 echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
 echo '<table width=60%>';

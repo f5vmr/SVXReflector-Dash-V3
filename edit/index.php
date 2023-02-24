@@ -156,13 +156,13 @@ textarea {
 $password = "www-data";
 $command = "echo '$password' | sudo -S chmod -R 777 /etc/svxlink/";
 exec($command);
-exec('sudo chown -R www-data:www-data /etc/svxlink/');
+exec('sudo chown -R www-data:www-data /etc/svxlink/');?>
+<?php
 $file=$_GET['file'];
 exec('sudo cp ' . $file . ' ' .$file .'.bak');
 $lines = file($file);
 echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
 echo '<table width=60%>';
-
 foreach ($lines as $line_num => $line) {
     echo '<tr><td contenteditable="true" style="text-align:left"><input type="text" style="width:100%" name="line[]" value="' . htmlspecialchars($line) . '"></td></tr>';
 }
@@ -174,7 +174,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = '';
     foreach ($_POST['line'] as $line) {
         $data .= $line . "\n";
-        echo $data;
     }
     echo "<meta http-equiv='refresh' content='0'>";
     $success = file_put_contents($file, $data);

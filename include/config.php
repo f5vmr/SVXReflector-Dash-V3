@@ -50,7 +50,7 @@ define("RF_MODULE","");
 
         define("SVXCONFPATH", "/etc/svxlink/");
         define("SVXCONFIG", "svxlink.conf");
-        define("SVXLOGPATH", "/var/log");
+        define("SVXLOGPATH", "/var/log/");
         define("SVXLOGPREFIX","svxlink.log");
         }
         include_once 'parse_svxconf.php';

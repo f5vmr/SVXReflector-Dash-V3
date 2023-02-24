@@ -1,7 +1,7 @@
 <?php
-// Report all errors except E_NOTICE
-// error_reporting(E_ALL & ~E_NOTICE);
-// disable all.
+include_once __DIR__.'/config.php';         
+include_once __DIR__.'/tools.php';        
+include_once __DIR__.'/functions.php';
 
 if ( (defined('SVXCONFIG')) && (defined('SVXCONFPATH')) ) {$svxConfigFile = SVXCONFPATH."/".SVXCONFIG ; }
 else {$svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlink"), strrpos(shell_exec("grep CFGFILE /etc/default/svxlink"), "=")+1)); }

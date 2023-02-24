@@ -75,6 +75,12 @@ include_once __DIR__."/include/buttons.php";
 }
 ?>
 <?php
+if($_GET['id]']=="node_info") {
+    $edit_file = "/etc/svxlink/node_info.json";
+
+}
+?>
+<?php
     echo '<table style="margin-bottom:0px;border:0; border-collapse:collapse; cellspacing:0; cellpadding:0; background-color:#f1f1f1;"><tr style="border:none;background-color:#f1f1f1;">';
     echo '<td width="200px" valign="top" class="hide" style="height:auto;border:0;background-color:#f1f1f1;">';
     echo '<div class="nav" style="margin-bottom:1px;margin-top:1px;">'."\n";
@@ -93,7 +99,7 @@ include_once __DIR__."/include/buttons.php";
     echo '</td>'."\n";
 
     echo '<td valign="middle"  style="height:495px; width=620px; text-align: center; border:none;  background-color:#f1f1f1;">';
-    echo '<iframe src="/nodeInfo"  style="width:615px; height:490px"></iframe>';
+    echo '<iframe src="/nodeInfo?file=' . $edit_file . '" width:"625" height"490" title="EDIT"></iframe>';
     echo '</td>';
 ?>
 </tr></table>

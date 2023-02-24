@@ -80,6 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = '';
     foreach ($_POST['line'] as $line) {
         $data .= $line . "\n";
+        echo "<meta http-equiv='refresh' content='0'>";   
     }
 
     $success = file_put_contents($file, $data);

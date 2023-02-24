@@ -194,7 +194,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }   
         //exec('sudo chown -R www-data:root /etc/svxlink/');
 }
-echo "<meta http-equiv='refresh' content='0'>";
+//echo "<meta http-equiv='refresh' content='0'>";
 exit();
 //Header('Location: ' . htmlspecialchars($_SERVER['PHP_SELF']));
 //exit(); 

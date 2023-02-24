@@ -156,7 +156,9 @@ textarea {
 $password = "www-data";
 $command = "echo '$password' | sudo -S chmod -R 777 /etc/svxlink/";
 exec($command);
-exec('sudo chown -R www-data:www-data /etc/svxlink/');?>
+exec('sudo chown -R www-data:www-data /etc/svxlink/');
+
+?>
 <?php
 $file=$_GET['file'];
 exec('sudo cp ' . $file . ' ' .$file .'.bak');
@@ -180,10 +182,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($success === false) {
         echo 'Error saving changes to file.';
     } else {
-        exec('sudo chown -R www-data:root /etc/svxlink/');
+     
         exec('sudo systemctl restart svxlink');
         echo 'Changes saved and service restarted.';
-    }
+    }   
+        exec('sudo chown -R www-data:root /etc/svxlink/');
 }
 //Header('Location: ' . htmlspecialchars($_SERVER['PHP_SELF']));
 //exit(); 

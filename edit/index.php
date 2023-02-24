@@ -155,6 +155,7 @@ textarea {
 <?php
 $password = "www-data";
 $command = "echo '$password' | sudo -S chmod -R 777 /etc/svxlink/";
+exec($command);
 $edit_file=$_GET['file'];
 exec('sudo cp ' . $edit_file . ' ' .$edit_file .'.bak');
 $lines = file($edit_file);

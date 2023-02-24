@@ -160,7 +160,7 @@ textarea {
 $nodeInfoFile = $_GET['file'];
 exec('sudo cp ' . $file . ' ' .$file .'.bak');
 
-//echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
+echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
 echo '<table width=60%>';
 
 if (fopen($nodeInfoFile,'r'))
@@ -246,7 +246,7 @@ if (isset($_POST['btnSave']))
 
 <table>
         <tr>
-        <th width = "380px">Node Info Input</th>
+        <th width = "640px">Node Info Input</th>
 	<th width = "100px">Action</th>
         </tr>
 <tr>

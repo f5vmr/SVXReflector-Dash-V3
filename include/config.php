@@ -10,6 +10,15 @@ define("HEADER_SYSOP","");
 define("FMNETWORK_EXTRA","");
 define("FULLACCESS_OUSIDE", "Full Access Outside");
 define("EL_NODE_NR",'$EL_node');
+define("CALLSIGN","");
+define("LOGICS","");
+define("REPORT_CTCSS","");
+define("DTMF_CTRL_PTY","");
+define("API","");
+define("FMNET","");
+define("TG_URI","");
+define("NODE_INFO_FILE","");
+define("RF_MODULE","");
 
 
 

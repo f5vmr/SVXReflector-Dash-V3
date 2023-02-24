@@ -188,11 +188,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }   
         //exec('sudo chown -R www-data:root /etc/svxlink/');
 }
-echo "<meta http-equiv='refresh' content='0'>";
-exit();
-//Header('Location: ' . htmlspecialchars($_SERVER['PHP_SELF']));
-//exit(); 
+
+
+// check if the form was submitted
+if ($_POST['submit_button']) {
+    // this means the submit button was clicked, and the form has refreshed the page
+    // to access the content in text area, you would do this
+    $a = $_POST['update'];
+
+    // now $a contains the data from the textarea, so you can do whatever with it
+    // this will echo the data on the page
+    echo $a;
+}
+else {
+    // form not submitted, so show the form
+
 ?>
+
 </fieldset>
 </body>
 </html>

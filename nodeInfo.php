@@ -2,13 +2,14 @@
 $progname = basename($_SERVER['SCRIPT_FILENAME'],".php");
 include_once 'include/config.php';
 include_once 'include/tools.php';
-// migrate to external class tbc
-
 $svxConfigFile = '/etc/svxlink/svxlink.conf';
     if (fopen($svxConfigFile,'r'))
        { $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
          $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
-         $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];   }
+         $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];  
+         $tgUri = $svxconfig['ReflectorLogic']['TG_URI'];
+         $node_password = $svxconfig['ReflectorLogic']['AUTH_KEY'];
+         $node_user = $callsign; }
 else { $callsign="NOCALL"; 
        $fmnetwork="no registered";
 	}
@@ -62,7 +63,6 @@ else { $callsign="NOCALL";
 </p></center>
 </div></div>
 </div>
-
 <?php include_once __DIR__."/include/top_menu.php"; ?>
 
 <div class="content"><center>

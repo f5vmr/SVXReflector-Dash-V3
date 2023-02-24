@@ -80,10 +80,7 @@ include_once __DIR__."/include/buttons.php";
 }
 ?>
 <?php
-if($_GET['id]']=="node_info") {
     $edit_file = "/etc/svxlink/node_info.json";
-
-}
 ?>
 <?php
     echo '<table style="margin-bottom:0px;border:0; border-collapse:collapse; cellspacing:0; cellpadding:0; background-color:#f1f1f1;"><tr style="border:none;background-color:#f1f1f1;">';

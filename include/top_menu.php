@@ -1,4 +1,4 @@
-<p style="padding-right: 5px; text-align: right; color: #000000;">
+    <p style="padding-right: 5px; text-align: right; color: #000000;">
 	<a style="color: black;">Display</a> |
 	<a href="/index.php" style="color: #0000ff;">Dashboard</a> | 
 	<a href="/node.php" style="color: #0000ff;">Nodes</a> | 
@@ -8,7 +8,15 @@
 	<a href="/wifi.php" style="color: #0000ff;">Wifi</a> | 
 	<a href="/network.php" style="color: #0000ff;">Network</a> |
 	<a href="/nodeInfo.php" style="color: #0000ff;">Node Info</a> |-->
-	
+	<a href="/log.php" style="color: #0000ff;">Log</a> |
+	<a href="/power.php" style="color: #0000ff;">Power</a> 
+	<p style="padding-right: 5px; text-align: right; color: #000000;"> 
+	<a style="color: black;">Full Edit</a> |
+	<a href="/editor.php?id=svxlink" style="color: crimson;" id="svxlink">SVXLink </a> |
+	<a href="/editor.php?id=gpio" style="color: crimson;" id="gpio">GPIO</a> |
+	<a href="/editor.php?id=echolink" style="color: crimson;" id="echolink">EchoLink</a> |
+	<a href="/editor.php?id=metarinfo" style="color: crimson;" id="metarinfo">MetarInfo</a></p> |
+	<a href="/node_info?id=node_info" style="color: crimson;" id="node_info">NodeInfo</a></p>
 	 
 
 <?php
@@ -38,12 +46,5 @@ include_once('parse_svxconf.php')
 }
 }*/
 ?>
-	<a href="/log.php" style="color: #0000ff;">Log</a> |
-	<a href="/power.php" style="color: #0000ff;">Power</a> 
-	<p style="padding-right: 5px; text-align: right; color: #000000;" <a style="color: black;">Full Edit</a> |
-	<a href="/editor.php?id=svxlink" style="color: crimson;" id="svxlink">SVXLink </a> |
-	<a href="/editor.php?id=gpio" style="color: crimson;" id="gpio">GPIO</a> |
-	<a href="/editor.php?id=echolink" style="color: crimson;" id="echolink">EchoLink</a> |
-	<a href="/editor.php?id=metarinfo" style="color: crimson;" id="metarinfo">MetarInfo</a></p> |
-	<a href="/node_info?id=node_info" style="color: crimson;" id="node_info">NodeInfo</a></p>
+
 </p>

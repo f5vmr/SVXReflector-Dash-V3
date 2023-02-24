@@ -183,8 +183,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo 'Changes saved and service restarted.';
     }
 }
-Header('Location: ' . htmlspecialchars($_SERVER['PHP_SELF']));
-exit(); 
+//Header('Location: ' . htmlspecialchars($_SERVER['PHP_SELF']));
+//exit(); 
 ?>
 </fieldset>
 </body>

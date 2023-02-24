@@ -179,7 +179,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo 'Error saving changes to file.';
     } else {
         chown ($edit_file,'www-data');
-        exec('sudo -S chmod -R 0777 /etc/svxlink/');
+        $command1="chown www-data" . $edit_file;
+        exec('sudo chown . $command1' ); 
+        exec('sudo -S chmod -R 777 /etc/svxlink/');
         exec('sudo  systemctl restart svxlink');
         echo 'Changes saved and service restarted.';
     }

@@ -160,17 +160,13 @@ exec('sudo chown -R www-data:www-data /etc/svxlink/');
 
 ?>
 <?php
-if ($_POST['submit_button']) {
-  $a = $_POST['update'];
-  echo $a;
-}
-else {
+
 $file=$_GET['file'];
 exec('sudo cp ' . $file . ' ' .$file .'.bak');
 $lines = file($file);
 echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
 echo '<table width=60%>';
-}
+
 foreach ($lines as $line_num => $line) {
     echo '<tr><td contenteditable="true" style="text-align:left"><input type="text" style="width:100%" name="line[]" value="' . htmlspecialchars($line) . '"></td></tr>';
 }
@@ -185,6 +181,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     $success = file_put_contents($file, $data);
+    echo $file . "  " . $data;
     if ($success === false) {
         echo 'Error saving changes to file.';
     } else {

@@ -160,11 +160,17 @@ exec('sudo chown -R www-data:www-data /etc/svxlink/');
 
 ?>
 <?php
+if ($_POST['submit_button']) {
+  $a = $_POST['update'];
+  echo $a;
+}
+else {
 $file=$_GET['file'];
 exec('sudo cp ' . $file . ' ' .$file .'.bak');
 $lines = file($file);
 echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
 echo '<table width=60%>';
+}
 foreach ($lines as $line_num => $line) {
     echo '<tr><td contenteditable="true" style="text-align:left"><input type="text" style="width:100%" name="line[]" value="' . htmlspecialchars($line) . '"></td></tr>';
 }
@@ -188,23 +194,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }   
         //exec('sudo chown -R www-data:root /etc/svxlink/');
 }
-
-
-// check if the form was submitted
-if ($_POST['submit_button']) {
-    // this means the submit button was clicked, and the form has refreshed the page
-    // to access the content in text area, you would do this
-    $a = $_POST['update'];
-
-    // now $a contains the data from the textarea, so you can do whatever with it
-    // this will echo the data on the page
-    echo $a;
-}
-else {
-    // form not submitted, so show the form
-
+echo "<meta http-equiv='refresh' content='0'>";
+exit();
+//Header('Location: ' . htmlspecialchars($_SERVER['PHP_SELF']));
+//exit(); 
 ?>
-
 </fieldset>
 </body>
 </html>

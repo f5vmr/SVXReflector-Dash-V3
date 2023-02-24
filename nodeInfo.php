@@ -100,7 +100,7 @@ include_once __DIR__."/include/buttons.php";
     echo '</div>'."\n";
     echo '</td>'."\n";
     echo '<td valign="middle"  style="height:495px; width=640px; text-align: center; border:none;  background-color:#f1f1f1;">';	
-    echo '<iframe src="/nodeInfo?file=' . $edit_file . '" width:"625" height"490" title="EDIT"></iframe>';
+    echo '<iframe src="/nodeInfo?file=' . $edit_file . '" width:"625px" height"490px" title="EDIT"></iframe>';
     echo '</td>';
 ?>
     

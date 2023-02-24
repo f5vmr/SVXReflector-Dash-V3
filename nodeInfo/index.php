@@ -163,12 +163,12 @@ exec('sudo chown -R www-data:www-data /etc/svxlink/');
 
 ?>
 <?php
-//include_once('include/functions.php');
+include_once('include/functions.php');
 $nodeInfoFile = $_GET['file'];
 exec('sudo cp ' . $file . ' ' .$file .'.bak');
 
-echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
-echo '<table width=60%>';
+//echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
+//echo '<table width=60%>';
 
 if (fopen($nodeInfoFile,'r'))
 {

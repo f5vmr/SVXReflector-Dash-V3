@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 echo "<meta http-equiv='refresh' content='0'>"; 
     $success = file_put_contents($file, $data);
-    echo $success;
+    
     if ($success === false) {
         echo 'Error saving changes to file.';
     } else {

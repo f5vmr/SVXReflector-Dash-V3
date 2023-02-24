@@ -177,7 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($_POST['line'] as $line) {
         $data .= $line . "\n";
     }
-    echo "<meta http-equiv='refresh' content='0'>";
+    
     $success = file_put_contents($file, $data);
     if ($success === false) {
         echo 'Error saving changes to file.';
@@ -188,6 +188,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }   
         //exec('sudo chown -R www-data:root /etc/svxlink/');
 }
+echo "<meta http-equiv='refresh' content='0'>";
 //Header('Location: ' . htmlspecialchars($_SERVER['PHP_SELF']));
 //exit(); 
 ?>

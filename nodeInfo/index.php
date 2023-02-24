@@ -155,7 +155,13 @@ textarea {
 
 <?php echo '<h1 id="node_info" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Node Info Configurator ' . $_GET['file'] . ' </h1>';?>
 
+<?php
+$password = "www-data";
+$command = "echo '$password' | sudo -S chmod -R 777 /etc/svxlink/";
+exec($command);
+exec('sudo chown -R www-data:www-data /etc/svxlink/');
 
+?>
 <?php
 //include_once('include/functions.php');
 $nodeInfoFile = $_GET['file'];

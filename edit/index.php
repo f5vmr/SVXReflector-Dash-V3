@@ -182,11 +182,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($success === false) {
         echo 'Error saving changes to file.';
     } else {
-     
+        chown ($file,'www-data');
         exec('sudo systemctl restart svxlink');
         echo 'Changes saved and service restarted.';
     }   
-        exec('sudo chown -R www-data:root /etc/svxlink/');
+        //exec('sudo chown -R www-data:root /etc/svxlink/');
 }
 //Header('Location: ' . htmlspecialchars($_SERVER['PHP_SELF']));
 //exit(); 

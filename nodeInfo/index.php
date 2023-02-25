@@ -114,7 +114,7 @@ $command = "echo '$password' | sudo -S chmod -R 777 /etc/svxlink/";
 exec($command);
 exec('sudo chown -R www-data:www-data /etc/svxlink/');
 exec('sudo chown -R www-data:www:data /var/www/html');
-
+exec('sudo cp /etc/svxlink/node_info.json /etc/svxlink/node_info.bak');
 $nodeInfoFile = '/etc/svxlink/node_info.json';  
 
 

@@ -161,7 +161,7 @@ echo "Here Now with ". $nodeInfoFile;
 $lines = file($file);
 echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
 echo '<table width=60%>';
-if (fopen($nodeInfoFile,'w'))
+if (fopen($nodeInfoFile,'r'))
   {
   $filedata = file_get_contents($nodeInfoFile);
   print_r($filedata);

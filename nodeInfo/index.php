@@ -157,9 +157,9 @@ textarea {
 
 $nodeInfoFile=$_GET['file'];
 exec('sudo cp ' . $nodeInfoFile . ' ' .$nodeInfoFile .'.bak');
-//*$lines = file($file);
-//echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
-//echo '<table width=60%>';
+$lines = file($file);
+echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
+echo '<table width=60%>';
 if (fopen($nodeInfoFile,'w'))
   {
   $filedata = file_get_contents($nodeInfoFile);

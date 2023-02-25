@@ -12,7 +12,7 @@ exec('sudo chown -R www-data:www-data /etc/svxlink/');
 exec('sudo chown -R www-data:www:data /var/www/html');
 
 ?>
-
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 <?php
 
 $node_InfoFile="/etc/svxlink/node_info.json";
@@ -25,11 +25,23 @@ $lines = file($node_InfoFile);
 //echo "Here Now with " . $node_InfoFile;
 $file = file_get_contents($node_InfoFile);
 $node_Info = json_decode($file, true);
-echo $node_Info;
-// Modify the values in the associative array based on user input
-$node_Info["location"] = $_POST["location"];
-$node_Info["frequency"] = $_POST["frequency"];
 
+// Modify the values in the associative array based on user input
+$node_Info["Location"] = $_POST['inLocation']; 
+$node_Info["Locator"] = $_POST['inLocator'];
+$node_Info["SysOp"] = $_POST['inSysOp'];
+$node_Info["LAT"] = $_POST['inLAT']; 
+$node_Info["LONG"] = $_POST['inLONG'];
+$node_Info["RXFREQ"] = $_POST['inRXFREQ'];
+$node_Info["TXFREQ"] = $_POST['inTXFREQ']; 
+$node_Info["Website"] = $_POST['inWebsite'];
+$node_Info["Mode"] = $_POST['inMode'];
+$node_Info["Type"] = $_POST['inType']; 
+$node_Info["Echolink"] = $_POST['inEcholink'];
+$node_Info["nodeLocation"] = $_POST['innodeLocation'];
+$node_Info["Compound"] = $_POST['inCompound'];
+$node_Info["CTCSS"] = $_POST['inCTCSS'];
+$node_Info["LinkedTo"] = $_POST['inLinkedTo'];
 // Encode the modified associative array into a .json string
 $json = json_encode($node_Info, JSON_PRETTY_PRINT);
 

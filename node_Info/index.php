@@ -69,8 +69,7 @@ textarea {
 
 
 <?php 
-//sp0dz based on:
-//https://programmierfrage.com/items/convert-array-to-an-ini-file
+
 function build_ini_string(array $a) {
     $out = '';
     $sectionless = '';

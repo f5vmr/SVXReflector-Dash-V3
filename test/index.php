@@ -48,6 +48,8 @@ $json = json_encode($node_Info, JSON_PRETTY_PRINT);
 // Write the .json string back to the file
 file_put_contents("/etc/svxlink/node_info.json", $json);
 ?>
+  <input type="submit" name="submit" value="Save">
+</form>
 <?php
 
 $json_file = file_get_contents('/etc/svxlink/node_info.json');

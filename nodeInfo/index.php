@@ -154,9 +154,10 @@ textarea {
 
 
 <?php
-echo "Here Now with ". $_GET['file'];
+
 $nodeInfoFile=$_GET['file'];
 exec('sudo cp ' . $nodeInfoFile . ' ' .$nodeInfoFile .'.bak');
+echo "Here Now with ". $nodeInfoFile;
 $lines = file($file);
 echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
 echo '<table width=60%>';

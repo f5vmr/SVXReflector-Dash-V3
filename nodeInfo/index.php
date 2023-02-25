@@ -119,6 +119,7 @@ $nodeInfoFile = '/etc/svxlink/node_info.json';
 
 if (fopen($nodeInfoFile,'r'))
 {
+    echo "Working! ";
 	$filedata = file_get_contents($nodeInfoFile);
 	$nodeInfo = json_decode($filedata,true);
 

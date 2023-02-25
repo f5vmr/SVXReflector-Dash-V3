@@ -78,7 +78,7 @@ exec('sudo chown -R www-data:www:data /var/www/html');
 exec('sudo cp /etc/svxlink/node_info.json /etc/svxlink/node_info.bak');
 $nodeInfoFile = '/etc/svxlink/node_info.json';  
 
-
+include_once('include/functions.php');
 if (fopen($nodeInfoFile,'r'))
 {
 	$filedata = file_get_contents($nodeInfoFile);

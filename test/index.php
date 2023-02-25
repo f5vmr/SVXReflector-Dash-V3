@@ -119,16 +119,16 @@ exec('sudo chown -R www-data:www:data /var/www/html');
 
 
 
-$node_InfoFile="/etc/svxlink/node_info.json";
+$nodeInfoFile="/etc/svxlink/node_info.json";
 
 
-if (fopen($node_InfoFile,'r'))
+if (fopen($nodeInfoFile,'r'))
   {
-  $filedata = file_get_contents($node_InfoFile);
+  $filedata = file_get_contents($nodeInfoFile);
   print_r($filedata);
-  $node_Info = json_decode($filedata,true);
-  print_r($node_Info);
-  build_ini_string(array($node_Info));
+  $nodeInfo = json_decode($filedata,true);
+  print_r($nodeInfo);
+  build_ini_string(array($nodeInfo));
   //print_r($sectionless . $out);
   };
 if (isset($_POST['btnSave']))
@@ -136,52 +136,52 @@ if (isset($_POST['btnSave']))
         $retval = null;
         $screen = null;
 	
-    $node_Info["node"] = $_POST['innode']; 
-    $node_Info["Location"] = $_POST['inLocation'];
-    $node_Info["hidden"] = $_POST['inhidden'];
-    $node_Info["SysOp"] = $_POST['inSysOp'];
-	  $node_Info["ToneToTalkGroup"] = $_POST['inToneToTG'];
-    $node_Info["LAT"] = $_POST['inLAT']; 
-    $node_Info["LONG"] = $_POST['inLONG'];
-    $node_Info["Locator"] = $_POST['inLocator'];
-    $node_Info["RXFREQ"] = $_POST['inRXFREQ'];
-	  $node_Info["TXFREQ"] = $_POST['inTXFREQ']; 
-    $node_Info["Website"] = $_POST['inWebsite'];
-    $node_Info["Mode"] = $_POST['inMode'];
-	  $node_Info["Type"] = $_POST['inType']; 
-    $node_Info["Echolink"] = $_POST['inEcholink'];
-    $node_Info["nodeLocation"] = $_POST['innodeLocation'];
-	  $node_Info["Compound"] = $_POST['inCompound'];
-    $node_Info["CTCSS"] = $_POST['inCTCSS'];
-	  $node_Info["LinkedTo"] = $_POST['inLinkedTo'];
+    $nodeInfo["node"] = $_POST['innode']; 
+    $nodeInfo["Location"] = $_POST['inLocation'];
+    $nodeInfo["hidden"] = $_POST['inhidden'];
+    $nodeInfo["SysOp"] = $_POST['inSysOp'];
+	  $nodeInfo["ToneToTalkGroup"] = $_POST['inToneToTG'];
+    $nodeInfo["LAT"] = $_POST['inLAT']; 
+    $nodeInfo["LONG"] = $_POST['inLONG'];
+    $nodeInfo["Locator"] = $_POST['inLocator'];
+    $nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
+	  $nodeInfo["TXFREQ"] = $_POST['inTXFREQ']; 
+    $nodeInfo["Website"] = $_POST['inWebsite'];
+    $nodeInfo["Mode"] = $_POST['inMode'];
+	  $nodeInfo["Type"] = $_POST['inType']; 
+    $nodeInfo["Echolink"] = $_POST['inEcholink'];
+    $nodeInfo["nodeLocation"] = $_POST['innodeLocation'];
+	  $nodeInfo["Compound"] = $_POST['inCompound'];
+    $nodeInfo["CTCSS"] = $_POST['inCTCSS'];
+	  $nodeInfo["LinkedTo"] = $_POST['inLinkedTo'];
 
-	  $jsonnode_Info = json_encode($node_Info);
-	  file_put_contents("/var/www/html/node_Info/node_info.json", $jsonnode_Info ,FILE_USE_INCLUDE_PATH);
+	  $jsonnodeInfo = json_encode($nodeInfo);
+	  file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonnodeInfo ,FILE_USE_INCLUDE_PATH);
 
         $retval = null;
         $screen = null;
         exec('sudo cp /etc/svxlink/node_info.json /etc/svxlink/node_info.json.' .date("YmdThis"), $screen, $retval);
-        exec('sudo mv /var/www/html/node_Info/node_info.json /etc/svxlink/node_info.json', $screen, $retval);
+        exec('sudo mv /var/www/html/nodeInfo/node_info.json /etc/svxlink/node_info.json', $screen, $retval);
         exec('sudo service svxlink restart 2>&1',$screen,$retval);
     };
     $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
     $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
     $inPassword = $svxconfig['ReflectorLogic']['AUTH_KEY'];
-	  $inLocation = $node_Info["nodeLocation"];
-    $inLocator = $node_Info["loc"]; 
-    $inSysOp = $node_Info["sysop"];
-	  $inLAT = $node_Info["lat"];
-    $inLONG = $node_Info["long"]; 
-    $inRXFREQ = $node_Info["freq"];
-	  $inTXFREQ = $node_Info["TXFREQ"];
-    $inWebsite = $node_Info["Website"]; 
-    $inMode = $node_Info["Mode"];
-	  $inType = $node_Info["Type"];
-    $inEcholink = $node_Info["Echolink"]; 
-    $innodeLocation = $node_Info["nodeLocation"];
-	  $inSysop = $node_Info["Sysop"]; 
-    $inCTCSS = $node_Info["CTCSS"];
-	  $inLinkedTo = $node_Info["LinkedTo"];
+	  $inLocation = $nodeInfo["nodeLocation"];
+    $inLocator = $nodeInfo["loc"]; 
+    $inSysOp = $nodeInfo["sysop"];
+	  $inLAT = $nodeInfo["lat"];
+    $inLONG = $nodeInfo["long"]; 
+    $inRXFREQ = $nodeInfo["freq"];
+	  $inTXFREQ = $nodeInfo["TXFREQ"];
+    $inWebsite = $nodeInfo["Website"]; 
+    $inMode = $nodeInfo["Mode"];
+	  $inType = $nodeInfo["Type"];
+    $inEcholink = $nodeInfo["Echolink"]; 
+    $innodeLocation = $nodeInfo["nodeLocation"];
+	  $inSysop = $nodeInfo["Sysop"]; 
+    $inCTCSS = $nodeInfo["CTCSS"];
+	  $inLinkedTo = $nodeInfo["LinkedTo"];
     
 ?>
 

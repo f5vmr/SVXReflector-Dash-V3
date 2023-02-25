@@ -30,7 +30,7 @@ else {$svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlink
          $refApi = $svxconfig['ReflectorLogic']['API'];
          $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];
          $tgUri = $svxconfig['ReflectorLogic']['TG_URI'];
-         $node_InfoFile = $svxconfig['ReflectorLogic']['NODE_INFO_FILE'];
+         $nodeInfoFile = $svxconfig['ReflectorLogic']['NODE_INFO_FILE'];
     $globalRf = $svxconfig['GLOBAL']['RF_MODULE'];
        }
 else { $callsign="NOCALL";

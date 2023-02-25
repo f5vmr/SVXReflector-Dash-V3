@@ -96,7 +96,7 @@ elseif($_GET['id']=="metarinfo"){
     //shell_exec("cd ");
     $edit_file = "/etc/svxlink/svxlink.d/ModuleMetarInfo.conf";
 }
-elseif($_GET['id']=="node_Info"){
+elseif($_GET['id']=="nodeInfo"){
     $edit_file = "/etc/svxlink/node_info.json";
 }
 

@@ -5,64 +5,18 @@
 <?php //echo '<h1 id="edit_info" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Edit Configuration ' . $_GET['file'] . '</h1>';?>
 
 <?php
+include_once('include/functions.php');
 $password = "www-data";
 $command = "echo '$password' | sudo -S chmod -R 777 /etc/svxlink/";
 exec($command);
 exec('sudo chown -R www-data:www-data /etc/svxlink/');
 exec('sudo chown -R www-data:www:data /var/www/html');
 
-?>
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-<?php
+
 
 $node_InfoFile="/etc/svxlink/node_info.json";
-exec('sudo cp ' . $node_InfoFile . ' ' .$node_InfoFile .'.bak');
-include_once('include/functions.php');
-$lines = file($node_InfoFile);
 
-//echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
-//echo '<table width=60%>';
-//echo "Here Now with " . $node_InfoFile;
-$file = file_get_contents($node_InfoFile);
-$node_Info = json_decode($file, true);
-build_ini_string(array($node_Info));
 
-// Modify the values in the associative array based on user input
-$node_Info["Location"] = $_POST['inLocation']; 
-$node_Info["Locator"] = $_POST['inLocator'];
-$node_Info["SysOp"] = $_POST['inSysOp'];
-$node_Info["LAT"] = $_POST['inLAT']; 
-$node_Info["LONG"] = $_POST['inLONG'];
-$node_Info["RXFREQ"] = $_POST['inRXFREQ'];
-$node_Info["TXFREQ"] = $_POST['inTXFREQ']; 
-$node_Info["Website"] = $_POST['inWebsite'];
-$node_Info["Mode"] = $_POST['inMode'];
-$node_Info["Type"] = $_POST['inType']; 
-$node_Info["Echolink"] = $_POST['inEcholink'];
-$node_Info["nodeLocation"] = $_POST['innodeLocation'];
-$node_Info["Compound"] = $_POST['inCompound'];
-$node_Info["CTCSS"] = $_POST['inCTCSS'];
-$node_Info["LinkedTo"] = $_POST['inLinkedTo'];
-// Encode the modified associative array into a .json string
-$json = json_encode($node_Info, JSON_PRETTY_PRINT);
-
-// Write the .json string back to the file
-file_put_contents("/etc/svxlink/node_info.json", $json);
-?>
-  
-<?php
-
-$json_file = file_get_contents('/etc/svxlink/node_info.json');
-$data = json_decode($json_file, true);
-
-foreach($data['qth'] as $value) {
-    $new_var = "$in" . $value['name'];
-    echo $new_var;
-}
-?>
-<input type="submit" name="submit" value="Save">
-</form>
-<?php
 if (fopen($node_InfoFile,'r'))
   {
   $filedata = file_get_contents($node_InfoFile);
@@ -229,34 +183,4 @@ if (isset($_POST['btnSave']))
 </form>
 <p style="margin: 0 auto;"></p>
 <p style="margin-bottom:-2px;"></p>
-<!--
-foreach ($lines as $line_num => $line) {
-    echo '<tr><td contenteditable="true" style="text-align:left"><input type="text" style="width:100%" name="line[]" value="' . htmlspecialchars($line) . '"></td></tr>';
-}
-echo '</table>';
-echo '<input type="submit" value="Click to Save Changes">';
-echo '</form>';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $data = '';
-    foreach ($_POST['line'] as $line) {
-        $data .= $line . "\n";
-    }
-    
-    $success = file_put_contents($file, $data);
-    echo $file . "  " . $data;
-    if ($success === false) {
-        echo 'Error saving changes to file.';
-    } else {
-        chown ($file,'www-data');
-        exec('sudo systemctl restart svxlink');
-        echo 'Changes saved and service restarted.';
-    }   
-        //exec('sudo chown -R www-data:root /etc/svxlink/');
-}
-//echo "<meta http-equiv='refresh' content='0'>";
-exit();
-//Header('Location: ' . htmlspecialchars($_SERVER['PHP_SELF']));
-//exit(); 
--->
 </fieldset>

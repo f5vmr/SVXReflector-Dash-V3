@@ -15,7 +15,7 @@ exec('sudo chown -R www-data:www:data /var/www/html');
 
 <?php
 
-$node_InfoFile="/etc/svxlink/node_Info.json";
+$node_InfoFile="/etc/svxlink/node_info.json";
 exec('sudo cp ' . $node_InfoFile . ' ' .$node_InfoFile .'.bak');
 include_once('include/functions.php');
 $lines = file($node_InfoFile);
@@ -34,11 +34,11 @@ $node_Info["frequency"] = $_POST["frequency"];
 $json = json_encode($node_Info, JSON_PRETTY_PRINT);
 
 // Write the .json string back to the file
-file_put_contents("/etc/svxlink/node_Info.json", $json);
+file_put_contents("/etc/svxlink/node_info.json", $json);
 ?>
 <?php
 
-$json_file = file_get_contents('/etc/svxlink/node_Info.json');
+$json_file = file_get_contents('/etc/svxlink/node_info.json');
 $data = json_decode($json_file, true);
 
 foreach($data['qth'] as $value) {
@@ -77,12 +77,12 @@ if (isset($_POST['btnSave']))
 	  $node_Info["LinkedTo"] = $_POST['inLinkedTo'];
 
 	  $jsonnode_Info = json_encode($node_Info);
-	  file_put_contents("/var/www/html/node_Info/node_Info.json", $jsonnode_Info ,FILE_USE_INCLUDE_PATH);
+	  file_put_contents("/var/www/html/node_Info/node_info.json", $jsonnode_Info ,FILE_USE_INCLUDE_PATH);
 
         $retval = null;
         $screen = null;
-        exec('sudo cp /etc/svxlink/node_Info.json /etc/svxlink/node_Info.json.' .date("YmdThis"), $screen, $retval);
-        exec('sudo mv /var/www/html/node_Info/node_Info.json /etc/svxlink/node_Info.json', $screen, $retval);
+        exec('sudo cp /etc/svxlink/node_info.json /etc/svxlink/node_info.json.' .date("YmdThis"), $screen, $retval);
+        exec('sudo mv /var/www/html/node_Info/node_info.json /etc/svxlink/node_info.json', $screen, $retval);
         exec('sudo service svxlink restart 2>&1',$screen,$retval);
     };
     $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);

@@ -97,7 +97,7 @@ elseif($_GET['id']=="metarinfo"){
     $edit_file = "/etc/svxlink/svxlink.d/ModuleMetarInfo.conf";
 }
 elseif($_GET['id']=="node_Info"){
-    $edit_file = "/etc/svxlink/node_Info.json";
+    $edit_file = "/etc/svxlink/node_info.json";
 }
 
 // check if form has been submitted

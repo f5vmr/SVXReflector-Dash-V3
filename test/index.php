@@ -53,7 +53,7 @@ if (fopen($nodeInfoFile,'r'))
 	$nodeInfo = json_decode($filedata,true);
 
 	echo (build_ini_string(array($nodeInfo)));
-	print_r($nodeInfo);
+	//print_r($nodeInfo);
 };
 
 

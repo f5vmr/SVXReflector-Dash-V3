@@ -138,7 +138,7 @@ if (isset($_POST['btnSave']))
 	$nodeInfo["LAT"] = $_POST['inLAT']; $nodeInfo["LONG"] = $_POST['inLONG'];$nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
 	$nodeInfo["TXFREQ"] = $_POST['inTXFREQ']; $nodeInfo["Website"] = $_POST['inWebsite'];$nodeInfo["Mode"] = $_POST['inMode'];
 	$nodeInfo["Type"] = $_POST['inType']; $nodeInfo["Echolink"] = $_POST['inEcholink'];$nodeInfo["nodeLocation"] = $_POST['innodeLocation'];
-	$nodeInfo["Sysop"] = $_POST['inSysop']; $nodeInfo["Verbund"] = $_POST['inVerbund'];$nodeInfo["CTCSS"] = $_POST['inCTCSS'];
+	$nodeInfo["Sysop"] = $_POST['inSysop']; $nodeInfo["Network"] = $_POST['inNetwork'];$nodeInfo["CTCSS"] = $_POST['inCTCSS'];
 	$nodeInfo["LinkedTo"] = $_POST['inLinkedTo'];$nodeInfo["DefaultTg"] = $_POST['inDefaultTg'];
 
 	$jsonNodeInfo = json_encode($nodeInfo);
@@ -166,7 +166,7 @@ if (isset($_POST['btnSave']))
 	$inLAT = $nodeInfo["LAT"];$inLONG = $nodeInfo["LONG"]; $inRXFREQ = $nodeInfo["RXFREQ"];
 	$inTXFREQ = $nodeInfo["TXFREQ"];$inWebsite = $nodeInfo["Website"]; $inMode = $nodeInfo["Mode"];
 	$inType = $nodeInfo["Type"];$inEcholink = $nodeInfo["Echolink"]; $innodeLocation = $nodeInfo["nodeLocation"];
-	$inSysop = $nodeInfo["Sysop"];$inVerbund = $nodeInfo["Verbund"]; $inCTCSS = $nodeInfo["CTCSS"];
+	$inSysop = $nodeInfo["Sysop"];$inNetwork = $nodeInfo["Network"]; $inCTCSS = $nodeInfo["CTCSS"];
 	$inLinkedTo = $nodeInfo["LinkedTo"];$inDefaultTg = $nodeInfo["DefaultTg"];
 
 ?>
@@ -213,7 +213,7 @@ if (isset($_POST['btnSave']))
         <input  type="text" name="inLONG" style="width:98%" value="<?php echo $inLONG;?>">
         </td></tr>
         <tr style="border: none;"> 
-        <td style="border: none;">Rq Freq</td>
+        <td style="border: none;">Rx Freq</td>
         <td style="border: none;">
         <input  type="text" name="inRXFREQ" style="width:98%" value="<?php echo $inRXFREQ;?>">
         </td></tr>
@@ -253,9 +253,9 @@ if (isset($_POST['btnSave']))
         <input  type="text" name="inSysop" style="width:98%" value="<?php echo $inSysop;?>">
         </td></tr>
         <tr style="border: none;"> 
-        <td style="border: none;">Verbund</td>
+        <td style="border: none;">Network</td>
         <td style="border: none;">
-        <input  type="text" name="inVerbund" style="width:98%" value="<?php echo $inVerbund;?>">
+        <input  type="text" name="inNetwork" style="width:98%" value="<?php echo $inNetwork;?>">
         </td></tr>
         <tr style="border: none;"> 
         <td style="border: none;">LinkedTo</td>

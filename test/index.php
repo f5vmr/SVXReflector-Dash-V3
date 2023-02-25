@@ -23,7 +23,7 @@ $lines = file($nodeInfoFile);
 //echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
 //echo '<table width=60%>';
 //echo "Here Now with " . $nodeInfoFile;
-$file = file_get_contents("/etc/svxlink/node_info.json");
+$file = file_get_contents($nodeInfoFile);
 $node_info = json_decode($file, true);
 
 // Modify the values in the associative array based on user input

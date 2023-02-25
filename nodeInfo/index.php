@@ -152,21 +152,15 @@ textarea {
 <?php echo '<h1 id="edit_info" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Edit Configuration ' . $_GET['file'] . '</h1>';?>
 
 
-<?php
-$password = "www-data";
-$command = "echo '$password' | sudo -S chmod -R 777 /etc/svxlink/";
-exec($command);
-exec('sudo chown -R www-data:www-data /etc/svxlink/');
 
-?>
 <?php
 
 $nodeInfoFile=$_GET['file'];
 exec('sudo cp ' . $nodeInfoFile . ' ' .$nodeInfoFile .'.bak');
 //*$lines = file($file);
-echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
-echo '<table width=60%>';
-if (fopen($nodeInfoFile,'r'))
+//echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
+//echo '<table width=60%>';
+if (fopen($nodeInfoFile,'w'))
   {
   $filedata = file_get_contents($nodeInfoFile);
   $nodeInfo = json_decode($filedata,true);
@@ -202,7 +196,7 @@ if (isset($_POST['btnSave']))
         exec('sudo mv /var/www/html/nodeInfo/node_info.json /etc/svxlink/node_info.json', $screen, $retval);
         exec('sudo service svxlink restart 2>&1',$screen,$retval);
     };
-        $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
+    $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
     $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
     $inPassword = $svxconfig['ReflectorLogic']['AUTH_KEY'];
 	  $inLocation = $nodeInfo["nodeLocation"];

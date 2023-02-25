@@ -110,6 +110,10 @@ if (isset($_POST['btnSave']))
         <input  type="text" name="inSysOp" style="width:98%" value="<?php echo $inSysOp;?>">
         </td></tr>
         <tr style="border: none;"> 
+        <td style="border: none;">Hidden</td>
+        <td style="border: none;">
+        <input  type="text" name="inhidden" style="width:98%" value="<?php echo $inLAT;?>">
+        </td></tr><tr style="border: none;"> 
         <td style="border: none;">Lat</td>
         <td style="border: none;">
         <input  type="text" name="inLAT" style="width:98%" value="<?php echo $inLAT;?>">

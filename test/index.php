@@ -3,82 +3,6 @@
 -->
 <!--h1 id="edit_info" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Edit Configuration '. $_GET['file']'</h1-->
 <?php //echo '<h1 id="edit_info" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Edit Configuration ' . $_GET['file'] . '</h1>';?>
-
-<?php
-include_once('include/functions.php');
-$password = "www-data";
-$command = "echo '$password' | sudo -S chmod -R 777 /etc/svxlink/";
-exec($command);
-exec('sudo chown -R www-data:www-data /etc/svxlink/');
-exec('sudo chown -R www-data:www:data /var/www/html');
-
-
-
-$node_InfoFile="/etc/svxlink/node_info.json";
-
-
-if (fopen($node_InfoFile,'r'))
-  {
-  $filedata = file_get_contents($node_InfoFile);
-  print_r($filedata);
-  $node_Info = json_decode($filedata,true);
-  print_r($node_Info);
-  build_ini_string(array($node_Info));
-  //print_r($sectionless . $out);
-  };
-if (isset($_POST['btnSave']))
-    {
-        $retval = null;
-        $screen = null;
-	
-    $node_Info["node"] = $_POST['innode']; 
-    $node_Info["Location"] = $_POST['inLocation'];
-    $node_Info["hidden"] = $_POST['inhidden'];
-    $node_Info["SysOp"] = $_POST['inSysOp'];
-	  $node_Info["ToneToTalkGroup"] = $_POST['inToneToTG'];
-    $node_Info["LAT"] = $_POST['inLAT']; 
-    $node_Info["LONG"] = $_POST['inLONG'];
-    $node_Info["Locator"] = $_POST['inLocator'];
-    $node_Info["RXFREQ"] = $_POST['inRXFREQ'];
-	  $node_Info["TXFREQ"] = $_POST['inTXFREQ']; 
-    $node_Info["Website"] = $_POST['inWebsite'];
-    $node_Info["Mode"] = $_POST['inMode'];
-	  $node_Info["Type"] = $_POST['inType']; 
-    $node_Info["Echolink"] = $_POST['inEcholink'];
-    $node_Info["nodeLocation"] = $_POST['innodeLocation'];
-	  $node_Info["Compound"] = $_POST['inCompound'];
-    $node_Info["CTCSS"] = $_POST['inCTCSS'];
-	  $node_Info["LinkedTo"] = $_POST['inLinkedTo'];
-
-	  $jsonnode_Info = json_encode($node_Info);
-	  file_put_contents("/var/www/html/node_Info/node_info.json", $jsonnode_Info ,FILE_USE_INCLUDE_PATH);
-
-        $retval = null;
-        $screen = null;
-        exec('sudo cp /etc/svxlink/node_info.json /etc/svxlink/node_info.json.' .date("YmdThis"), $screen, $retval);
-        exec('sudo mv /var/www/html/node_Info/node_info.json /etc/svxlink/node_info.json', $screen, $retval);
-        exec('sudo service svxlink restart 2>&1',$screen,$retval);
-    };
-    $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
-    $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
-    $inPassword = $svxconfig['ReflectorLogic']['AUTH_KEY'];
-	  $inLocation = $node_Info["nodeLocation"];
-    $inLocator = $node_Info["loc"]; 
-    $inSysOp = $node_Info["sysop"];
-	  $inLAT = $node_Info["lat"];
-    $inLONG = $node_Info["long"]; 
-    $inRXFREQ = $node_Info["freq"];
-	  $inTXFREQ = $node_Info["TXFREQ"];
-    $inWebsite = $node_Info["Website"]; 
-    $inMode = $node_Info["Mode"];
-	  $inType = $node_Info["Type"];
-    $inEcholink = $node_Info["Echolink"]; 
-    $innodeLocation = $node_Info["nodeLocation"];
-	  $inSysop = $node_Info["Sysop"]; 
-    $inCTCSS = $node_Info["CTCSS"];
-	  $inLinkedTo = $node_Info["LinkedTo"];
-    
-?>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <table>
         <tr>
@@ -185,6 +109,82 @@ if (isset($_POST['btnSave']))
 </td>
 </tr>
 </table>
+<?php
+include_once('include/functions.php');
+$password = "www-data";
+$command = "echo '$password' | sudo -S chmod -R 777 /etc/svxlink/";
+exec($command);
+exec('sudo chown -R www-data:www-data /etc/svxlink/');
+exec('sudo chown -R www-data:www:data /var/www/html');
+
+
+
+$node_InfoFile="/etc/svxlink/node_info.json";
+
+
+if (fopen($node_InfoFile,'r'))
+  {
+  $filedata = file_get_contents($node_InfoFile);
+  print_r($filedata);
+  $node_Info = json_decode($filedata,true);
+  print_r($node_Info);
+  build_ini_string(array($node_Info));
+  //print_r($sectionless . $out);
+  };
+if (isset($_POST['btnSave']))
+    {
+        $retval = null;
+        $screen = null;
+	
+    $node_Info["node"] = $_POST['innode']; 
+    $node_Info["Location"] = $_POST['inLocation'];
+    $node_Info["hidden"] = $_POST['inhidden'];
+    $node_Info["SysOp"] = $_POST['inSysOp'];
+	  $node_Info["ToneToTalkGroup"] = $_POST['inToneToTG'];
+    $node_Info["LAT"] = $_POST['inLAT']; 
+    $node_Info["LONG"] = $_POST['inLONG'];
+    $node_Info["Locator"] = $_POST['inLocator'];
+    $node_Info["RXFREQ"] = $_POST['inRXFREQ'];
+	  $node_Info["TXFREQ"] = $_POST['inTXFREQ']; 
+    $node_Info["Website"] = $_POST['inWebsite'];
+    $node_Info["Mode"] = $_POST['inMode'];
+	  $node_Info["Type"] = $_POST['inType']; 
+    $node_Info["Echolink"] = $_POST['inEcholink'];
+    $node_Info["nodeLocation"] = $_POST['innodeLocation'];
+	  $node_Info["Compound"] = $_POST['inCompound'];
+    $node_Info["CTCSS"] = $_POST['inCTCSS'];
+	  $node_Info["LinkedTo"] = $_POST['inLinkedTo'];
+
+	  $jsonnode_Info = json_encode($node_Info);
+	  file_put_contents("/var/www/html/node_Info/node_info.json", $jsonnode_Info ,FILE_USE_INCLUDE_PATH);
+
+        $retval = null;
+        $screen = null;
+        exec('sudo cp /etc/svxlink/node_info.json /etc/svxlink/node_info.json.' .date("YmdThis"), $screen, $retval);
+        exec('sudo mv /var/www/html/node_Info/node_info.json /etc/svxlink/node_info.json', $screen, $retval);
+        exec('sudo service svxlink restart 2>&1',$screen,$retval);
+    };
+    $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
+    $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
+    $inPassword = $svxconfig['ReflectorLogic']['AUTH_KEY'];
+	  $inLocation = $node_Info["nodeLocation"];
+    $inLocator = $node_Info["loc"]; 
+    $inSysOp = $node_Info["sysop"];
+	  $inLAT = $node_Info["lat"];
+    $inLONG = $node_Info["long"]; 
+    $inRXFREQ = $node_Info["freq"];
+	  $inTXFREQ = $node_Info["TXFREQ"];
+    $inWebsite = $node_Info["Website"]; 
+    $inMode = $node_Info["Mode"];
+	  $inType = $node_Info["Type"];
+    $inEcholink = $node_Info["Echolink"]; 
+    $innodeLocation = $node_Info["nodeLocation"];
+	  $inSysop = $node_Info["Sysop"]; 
+    $inCTCSS = $node_Info["CTCSS"];
+	  $inLinkedTo = $node_Info["LinkedTo"];
+    
+?>
+
 
 
 <!--</form>

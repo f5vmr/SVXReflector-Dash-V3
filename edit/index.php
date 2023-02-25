@@ -157,6 +157,7 @@ $password = "www-data";
 $command = "echo '$password' | sudo -S chmod -R 777 /etc/svxlink/";
 exec($command);
 exec('sudo chown -R www-data:www-data /etc/svxlink/');
+exec('sudo chown -R www-data:www:data /var/www/html');
 
 ?>
 <?php

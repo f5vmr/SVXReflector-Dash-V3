@@ -151,7 +151,14 @@ textarea {
 <!--h1 id="edit_info" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Edit Configuration '. $_GET['file']'</h1-->
 <?php //echo '<h1 id="edit_info" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Edit Configuration ' . $_GET['file'] . '</h1>';?>
 
+<?php
+$password = "www-data";
+$command = "echo '$password' | sudo -S chmod -R 777 /etc/svxlink/";
+exec($command);
+exec('sudo chown -R www-data:www-data /etc/svxlink/');
+exec('sudo chown -R www-data:www:data /var/www/html');
 
+?>
 
 <?php
 

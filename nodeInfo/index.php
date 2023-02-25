@@ -109,7 +109,11 @@ function build_ini_string(array $a) {
     return $sectionless.$out;
 }
 
-
+$password = "www-data";
+$command = "echo '$password' | sudo -S chmod -R 777 /etc/svxlink/";
+exec($command);
+exec('sudo chown -R www-data:www-data /etc/svxlink/');
+exec('sudo chown -R www-data:www:data /var/www/html');
 
 $nodeInfoFile = '/etc/svxlink/node_info.json';  
 
@@ -118,7 +122,7 @@ if (fopen($nodeInfoFile,'r'))
 {
 	$filedata = file_get_contents($nodeInfoFile);
 	$nodeInfo = json_decode($filedata,true);
-	print_r($nodeInfo);
+	//print_r($nodeInfo);
 };
 
 
@@ -154,8 +158,8 @@ if (isset($_POST['btnSave']))
 		exec('sudo mv /var/www/html/nodeInfo/node_info.json /etc/svxlink/node_info.json', $screen, $retval);
         	//Service SVXlink restart
        		exec('sudo service svxlink restart 2>&1',$screen,$retval);
-
-};
+            exec('sudo chown -R www-data:root /etc/svxlink/');
+            };
 
 //  	$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
 //        $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];

@@ -154,7 +154,7 @@ textarea {
 
 
 <?php
-echo "Here Now";
+echo "Here Now with ". $_GET['file'];
 $nodeInfoFile=$_GET['file'];
 exec('sudo cp ' . $nodeInfoFile . ' ' .$nodeInfoFile .'.bak');
 $lines = file($file);

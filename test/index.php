@@ -31,11 +31,14 @@ if (isset($_POST['btnSave']))
         $retval = null;
         $screen = null;
 	
-    $node_Info["Location"] = $_POST['inLocation']; 
-    $node_Info["Locator"] = $_POST['inLocator'];
+    $node_Info["node"] = $_POST['innode']; 
+    $node_Info["Location"] = $_POST['inLocation'];
+    $node_Info["hidden"] = $_POST['inhidden'];
     $node_Info["SysOp"] = $_POST['inSysOp'];
-	  $node_Info["LAT"] = $_POST['inLAT']; 
+	  $node_Info["ToneToTalkGroup"] = $_POST['inToneToTG'];
+    $node_Info["LAT"] = $_POST['inLAT']; 
     $node_Info["LONG"] = $_POST['inLONG'];
+    $node_Info["Locator"] = $_POST['inLocator'];
     $node_Info["RXFREQ"] = $_POST['inRXFREQ'];
 	  $node_Info["TXFREQ"] = $_POST['inTXFREQ']; 
     $node_Info["Website"] = $_POST['inWebsite'];

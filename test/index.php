@@ -50,11 +50,11 @@ echo $nodeInfoFile;
 if (fopen($nodeInfoFile,'r'))
 {
 	$filedata = file_get_contents($nodeInfoFile);
-        echo $filedata . " one section    " . "<\b>"; 
+        echo $filedata . " one section    " . "</b>"; 
 	$nodeInfo = json_decode($filedata,true);
-        echo $nodeInfo. " two section     ". "<\b>";
-	echo (build_ini_string(array($nodeInfo)));
-        echo "<\b> finished. ";
+        echo $nodeInfo. " two section     ". "</b>";
+	$b = (build_ini_string(array($nodeInfo)));
+        echo $b . "</b> finished. ";
 	
 };
 

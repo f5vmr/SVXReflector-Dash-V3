@@ -430,7 +430,7 @@ function build_ini_string(array $a) {
 function createjson($filename)
 {
         header('Content-Type: text/html; charset=utf-8');
-        header('Content-Disposition: attachment; filename="node_info.json');
+        header('Content-Disposition: attachment; filename="node_Info.json');
 
         $json_array = [];
 

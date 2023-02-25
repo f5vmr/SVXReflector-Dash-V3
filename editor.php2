@@ -137,7 +137,7 @@ echo '</div>'."\n";
 echo '</td>'."\n";
 
 echo '<td valign="middle"  style="height:495px; width=620px; text-align: center; border:none;  background-color:#f1f1f1;">';
-echo '<iframe src="/nodeInfo"  style="width:615px; height:490px"></iframe>';
+echo '<iframe src="/node_Info"  style="width:615px; height:490px"></iframe>';
 echo '</td>';
 ?>
 <?php

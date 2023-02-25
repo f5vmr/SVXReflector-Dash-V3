@@ -7,7 +7,7 @@
 	<!--<a href="/audio.php" style="color: #0000ff;">Audio</a> | 
 	<a href="/wifi.php" style="color: #0000ff;">Wifi</a> | 
 	<a href="/network.php" style="color: #0000ff;">Network</a> |
-	<a href="/nodeInfo.php" style="color: #0000ff;">Node Info</a> |-->
+	<a href="/node_Info.php" style="color: #0000ff;">Node Info</a> |-->
 	<a href="/log.php" style="color: #0000ff;">Log</a> |
 	<a href="/power.php" style="color: #0000ff;">Power</a></p>
 	<p style="padding-right: 5px; text-align: right; color: #000000;" <a style="color: black;">Full Edit</a> |
@@ -15,7 +15,7 @@
 	<a href="/editor.php?id=gpio" style="color: crimson;" id="gpio">GPIO</a> |
 	<a href="/editor.php?id=echolink" style="color: crimson;" id="echolink">EchoLink</a> |
 	<a href="/editor.php?id=metarinfo" style="color: crimson;" id="metarinfo">MetarInfo</a> |
-	<a href="/nodeInfo.php?id=nodeInfo" style="color: crimson;" id="nodeInfo">NodeInfo</a></p>
+	<a href="/node_Info.php?id=node_Info" style="color: crimson;" id="node_Info">node_Info</a></p>
 	
 </p>
 	 

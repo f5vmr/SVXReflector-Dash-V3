@@ -15,30 +15,30 @@ exec('sudo chown -R www-data:www:data /var/www/html');
 
 <?php
 
-$nodeInfoFile="/etc/svxlink/node_info.json";
-exec('sudo cp ' . $nodeInfoFile . ' ' .$nodeInfoFile .'.bak');
+$node_InfoFile="/etc/svxlink/node_Info.json";
+exec('sudo cp ' . $node_InfoFile . ' ' .$node_InfoFile .'.bak');
 include_once('include/functions.php');
-$lines = file($nodeInfoFile);
+$lines = file($node_InfoFile);
 
 //echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
 //echo '<table width=60%>';
-//echo "Here Now with " . $nodeInfoFile;
-$file = file_get_contents($nodeInfoFile);
-$node_info = json_decode($file, true);
+//echo "Here Now with " . $node_InfoFile;
+$file = file_get_contents($node_InfoFile);
+$node_Info = json_decode($file, true);
 
 // Modify the values in the associative array based on user input
-$node_info["location"] = $_POST["location"];
-$node_info["frequency"] = $_POST["frequency"];
+$node_Info["location"] = $_POST["location"];
+$node_Info["frequency"] = $_POST["frequency"];
 
 // Encode the modified associative array into a .json string
-$json = json_encode($node_info, JSON_PRETTY_PRINT);
+$json = json_encode($node_Info, JSON_PRETTY_PRINT);
 
 // Write the .json string back to the file
-file_put_contents("/etc/svxlink/node_info.json", $json);
+file_put_contents("/etc/svxlink/node_Info.json", $json);
 ?>
 <?php
 
-$json_file = file_get_contents('/etc/svxlink/node_info.json');
+$json_file = file_get_contents('/etc/svxlink/node_Info.json');
 $data = json_decode($json_file, true);
 
 foreach($data['qth'] as $value) {
@@ -46,13 +46,13 @@ foreach($data['qth'] as $value) {
     echo $new_var;
 }
 
-if (fopen($nodeInfoFile,'r'))
+if (fopen($node_InfoFile,'r'))
   {
-  $filedata = file_get_contents($nodeInfoFile);
+  $filedata = file_get_contents($node_InfoFile);
   //print_r($filedata);
-  $nodeInfo = json_decode($filedata,true);
-  print_r($nodeInfo);
-  build_ini_string(array($nodeInfo));
+  $node_Info = json_decode($filedata,true);
+  //print_r($node_Info);
+  build_ini_string(array($node_Info));
   //print_r($sectionless . $out);
   };
 if (isset($_POST['btnSave']))
@@ -60,49 +60,49 @@ if (isset($_POST['btnSave']))
         $retval = null;
         $screen = null;
 	
-    $nodeInfo["Location"] = $_POST['inLocation']; 
-    $nodeInfo["Locator"] = $_POST['inLocator'];
-    $nodeInfo["SysOp"] = $_POST['inSysOp'];
-	  $nodeInfo["LAT"] = $_POST['inLAT']; 
-    $nodeInfo["LONG"] = $_POST['inLONG'];
-    $nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
-	  $nodeInfo["TXFREQ"] = $_POST['inTXFREQ']; 
-    $nodeInfo["Website"] = $_POST['inWebsite'];
-    $nodeInfo["Mode"] = $_POST['inMode'];
-	  $nodeInfo["Type"] = $_POST['inType']; 
-    $nodeInfo["Echolink"] = $_POST['inEcholink'];
-    $nodeInfo["nodeLocation"] = $_POST['innodeLocation'];
-	  $nodeInfo["Compound"] = $_POST['inCompound'];
-    $nodeInfo["CTCSS"] = $_POST['inCTCSS'];
-	  $nodeInfo["LinkedTo"] = $_POST['inLinkedTo'];
+    $node_Info["Location"] = $_POST['inLocation']; 
+    $node_Info["Locator"] = $_POST['inLocator'];
+    $node_Info["SysOp"] = $_POST['inSysOp'];
+	  $node_Info["LAT"] = $_POST['inLAT']; 
+    $node_Info["LONG"] = $_POST['inLONG'];
+    $node_Info["RXFREQ"] = $_POST['inRXFREQ'];
+	  $node_Info["TXFREQ"] = $_POST['inTXFREQ']; 
+    $node_Info["Website"] = $_POST['inWebsite'];
+    $node_Info["Mode"] = $_POST['inMode'];
+	  $node_Info["Type"] = $_POST['inType']; 
+    $node_Info["Echolink"] = $_POST['inEcholink'];
+    $node_Info["nodeLocation"] = $_POST['innodeLocation'];
+	  $node_Info["Compound"] = $_POST['inCompound'];
+    $node_Info["CTCSS"] = $_POST['inCTCSS'];
+	  $node_Info["LinkedTo"] = $_POST['inLinkedTo'];
 
-	  $jsonNodeInfo = json_encode($nodeInfo);
-	  file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_USE_INCLUDE_PATH);
+	  $jsonnode_Info = json_encode($node_Info);
+	  file_put_contents("/var/www/html/node_Info/node_Info.json", $jsonnode_Info ,FILE_USE_INCLUDE_PATH);
 
         $retval = null;
         $screen = null;
-        exec('sudo cp /etc/svxlink/node_info.json /etc/svxlink/node_info.json.' .date("YmdThis"), $screen, $retval);
-        exec('sudo mv /var/www/html/nodeInfo/node_info.json /etc/svxlink/node_info.json', $screen, $retval);
+        exec('sudo cp /etc/svxlink/node_Info.json /etc/svxlink/node_Info.json.' .date("YmdThis"), $screen, $retval);
+        exec('sudo mv /var/www/html/node_Info/node_Info.json /etc/svxlink/node_Info.json', $screen, $retval);
         exec('sudo service svxlink restart 2>&1',$screen,$retval);
     };
     $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
     $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
     $inPassword = $svxconfig['ReflectorLogic']['AUTH_KEY'];
-	  $inLocation = $nodeInfo["nodeLocation"];
-    $inLocator = $nodeInfo["loc"]; 
-    $inSysOp = $nodeInfo["sysop"];
-	  $inLAT = $nodeInfo["lat"];
-    $inLONG = $nodeInfo["long"]; 
-    $inRXFREQ = $nodeInfo["freq"];
-	  $inTXFREQ = $nodeInfo["TXFREQ"];
-    $inWebsite = $nodeInfo["Website"]; 
-    $inMode = $nodeInfo["Mode"];
-	  $inType = $nodeInfo["Type"];
-    $inEcholink = $nodeInfo["Echolink"]; 
-    $innodeLocation = $nodeInfo["nodeLocation"];
-	  $inSysop = $nodeInfo["Sysop"]; 
-    $inCTCSS = $nodeInfo["CTCSS"];
-	  $inLinkedTo = $nodeInfo["LinkedTo"];
+	  $inLocation = $node_Info["nodeLocation"];
+    $inLocator = $node_Info["loc"]; 
+    $inSysOp = $node_Info["sysop"];
+	  $inLAT = $node_Info["lat"];
+    $inLONG = $node_Info["long"]; 
+    $inRXFREQ = $node_Info["freq"];
+	  $inTXFREQ = $node_Info["TXFREQ"];
+    $inWebsite = $node_Info["Website"]; 
+    $inMode = $node_Info["Mode"];
+	  $inType = $node_Info["Type"];
+    $inEcholink = $node_Info["Echolink"]; 
+    $innodeLocation = $node_Info["nodeLocation"];
+	  $inSysop = $node_Info["Sysop"]; 
+    $inCTCSS = $node_Info["CTCSS"];
+	  $inLinkedTo = $node_Info["LinkedTo"];
     
 ?>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">

@@ -96,8 +96,8 @@ elseif($_GET['id']=="metarinfo"){
     //shell_exec("cd ");
     $edit_file = "/etc/svxlink/svxlink.d/ModuleMetarInfo.conf";
 }
-elseif($_GET['id']=="nodeInfo"){
-    $edit_file = "/etc/svxlink/node_info.json";
+elseif($_GET['id']=="node_Info"){
+    $edit_file = "/etc/svxlink/node_Info.json";
 }
 
 // check if form has been submitted
@@ -137,7 +137,7 @@ if (isset($_POST['text']))
     echo '</div>'."\n";
     echo '</td>'."\n";
     echo '<td valign="middle"  style="height:495px; width=640px; text-align: center; border:none;  background-color:#f1f1f1;">';	
-    echo '<iframe src="/nodeInfo?file=' . $edit_file . '"  width="625px" height="490px" title="EDIT"></iframe>';
+    echo '<iframe src="/node_Info?file=' . $edit_file . '"  width="625px" height="490px" title="EDIT"></iframe>';
     echo '</td>';
 ?>
 </tr></table>

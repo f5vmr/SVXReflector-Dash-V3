@@ -25,6 +25,7 @@ $lines = file($node_InfoFile);
 //echo "Here Now with " . $node_InfoFile;
 $file = file_get_contents($node_InfoFile);
 $node_Info = json_decode($file, true);
+build_ini_string(array($node_Info));
 
 // Modify the values in the associative array based on user input
 $node_Info["Location"] = $_POST['inLocation']; 
@@ -48,8 +49,7 @@ $json = json_encode($node_Info, JSON_PRETTY_PRINT);
 // Write the .json string back to the file
 file_put_contents("/etc/svxlink/node_info.json", $json);
 ?>
-  <input type="submit" name="submit" value="Save">
-</form>
+  
 <?php
 
 $json_file = file_get_contents('/etc/svxlink/node_info.json');
@@ -59,7 +59,10 @@ foreach($data['qth'] as $value) {
     $new_var = "$in" . $value['name'];
     echo $new_var;
 }
-
+?>
+<input type="submit" name="submit" value="Save">
+</form>
+<?php
 if (fopen($node_InfoFile,'r'))
   {
   $filedata = file_get_contents($node_InfoFile);

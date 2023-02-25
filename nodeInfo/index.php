@@ -122,7 +122,7 @@ if (fopen($nodeInfoFile,'r'))
 {
 	$filedata = file_get_contents($nodeInfoFile);
 	$nodeInfo = json_decode($filedata,true);
-	//print_r($nodeInfo);
+	print_r($nodeInfo);
 };
 
 
@@ -133,7 +133,7 @@ if (fopen($nodeInfoFile,'r'))
 //        $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
 //};
 
-echo $nodeInfo['Location'];
+
 
 if (isset($_POST['btnSave']))
     {

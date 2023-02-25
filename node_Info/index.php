@@ -1,8 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" lang="en">
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
+    <title>Audio Peak Meter</title>
+    <meta name="Author" content="Waldek SP2ONG" />
+    <meta name="Description" content="Audio Test Peak Meter for SVXLink by SP2ONG 2022" />
+    <meta name="KeyWords" content="SVXLink, SVXRelector,SP2ONG" />
     <link href="/css/css.php" type="text/css" rel="stylesheet" />
 <style type="text/css">
 body {
@@ -42,97 +45,7 @@ pre {
     overflow: hidden;
     direction: ltl;
 }
-.button {
-  border: none;
-  color: #454545;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-.buttonh {
-  background-image: linear-gradient(to bottom, #337ab7 0%, #265a88 100%);color:#454545;
-  color: #454545;
-}
 
-.buttonh:hover {
-  background-color: #4CAF50;
-  color: #454545;
-}
-.green
-{
-  background-color: #448f47;
-  border: none;
-  color: white;
-  font-weight: 600;
-  font-size: 13px;
-  padding: 4px 12px;
-  text-decoration: none;
-  margin: 4px 4px;
-  cursor: pointer;
-  border-radius: 4px;
-
-}
-
-.blue
-{
-  background-image: linear-gradient(to bottom, #337ab7 0%, #265a88 100%);color:#454545;
-  border: none;
-  color: white;
-  font-weight: 600;
-  font-size: 16px;
-  padding: 4px 12px;
-  text-decoration: none;
-  margin: 4px 4px;
-  cursor: pointer;
-  border-radius: 4px;
-  height:80px;
-  width:150px;
-}
-
-.red
-{
-  background-color: #b00;
-  border: none;
-  color: white;
-  font-weight: 600;
-  font-size: 13px;
-  padding: 4px 12px;
-  text-decoration: none;
-  margin: 4px 4px;
-  cursor: pointer;
-  border-radius: 4px;
-}
-.orange
-{
-  background-color: DarkOrange;
-  border: none;
-  color: white;
-  font-weight: 600;
-  font-size: 13px;
-  padding: 4px 12px;
-  text-decoration: none;
-  margin: 4px 4px;
-  cursor: pointer;
-  border-radius: 4px;
-}
-.purple
-{
-  background-color: #800080;
-  border: none;
-  color: white;
-  font-weight: 600;
-  font-size: 13px;
-  padding: 4px 12px;
-  text-decoration: none;
-  margin: 4px 4px;
-  cursor: pointer;
-  border-radius: 4px;
-}
 textarea {
     background-color: #111;
     border: 1px solid #000;
@@ -141,99 +54,130 @@ textarea {
     font-family: courier new;
     font-size:10px;
 }
+
+
+
+
 </style>
 </head>
 <body style="background-color: #e1e1e1;font: 11pt arial, sans-serif;">
 <center>
-<fieldset style="border:#3083b8 2px groove;box-shadow:5px 5px 20px #999; background-color:#f1f1f1; width:555px;margin-top:15px;margin-left:0px;margin-right:5px;font-size:13px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+<fieldset style="border:#3083b8 2px groove;box-shadow:0 0 10px #999; background-color:#f1f1f1; width:555px;margin-top:15px;margin-left:0px;margin-right:5px;font-size:13px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
 <div style="padding:0px;width:550px;background-image: linear-gradient(to bottom, #e9e9e9 50%, #bcbaba 100%);border-radius: 10px;-moz-border-radius:10px;-webkit-border-radius:10px;border: 1px solid LightGrey;margin-left:0px; margin-right:0px;margin-top:4px;margin-bottom:0px;line-height:1.6;white-space:normal;">
+<center>
+<h1 id="web-audio-peak-meters" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Node Info Configurator</h1>
 
-<!--h1 id="edit_info" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Edit Configuration '. $_GET['file']'</h1-->
-<?php //echo '<h1 id="edit_info" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Edit Configuration ' . $_GET['file'] . '</h1>';?>
 
-<?php
-$password = "www-data";
-$command = "echo '$password' | sudo -S chmod -R 777 /etc/svxlink/";
-exec($command);
-exec('sudo chown -R www-data:www-data /etc/svxlink/');
-exec('sudo chown -R www-data:www:data /var/www/html');
+<?php 
+//sp0dz based on:
+//https://programmierfrage.com/items/convert-array-to-an-ini-file
+function build_ini_string(array $a) {
+    $out = '';
+    $sectionless = '';
+    foreach($a as $rootkey => $rootvalue){
+        if(is_array($rootvalue)){
+            // find out if the root-level item is an indexed or associative array
+            $indexed_root = array_keys($rootvalue) == range(0, count($rootvalue) - 1);
+            // associative arrays at the root level have a section heading
+            if(!$indexed_root) $out .= PHP_EOL."[$rootkey]".PHP_EOL;
+            // loop through items under a section heading
+            foreach($rootvalue as $key => $value){
+                if(is_array($value)){
+                    // indexed arrays under a section heading will have their key omitted
+                    $indexed_item = array_keys($value) == range(0, count($value) - 1);
+                    foreach($value as $subkey=>$subvalue){
+                        // omit subkey for indexed arrays
+                        if($indexed_item) $subkey = "";
+                        // add this line under the section heading
+                        $out .= "{$key}[$subkey] = $subvalue" . PHP_EOL;
+                    }
+                }else{
+                    if($indexed_root){
+                        // root level indexed array becomes sectionless
+                        $sectionless .= "{$rootkey}[] = $value" . PHP_EOL;
+                    }else{
+                        // plain values within root level sections
+                        $out .= "$key = $value" . PHP_EOL;
+                    }
+                }
+            }
 
-?>
+        }else{
+            // root level sectionless values
+            $sectionless .= "$rootkey = $rootvalue" . PHP_EOL;
+        }
+    }
+    return $sectionless.$out;
+}
 
-<?php
 
-$node_InfoFile=$_GET['file'];
-exec('sudo cp ' . $node_InfoFile . ' ' .$node_InfoFile .'.bak');
-include_once('include/functions.php');
-$lines = file($node_InfoFile);
+//$svxConfigFile = '/etc/svxlink/svxlink.conf';
+$nodeInfoFile = '/etc/svxlink/node_info.json';
+//$svxConfigFile = '/var/www/html/svxlink.conf';    
 
-//echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
-//echo '<table width=60%>';
-//echo "Here Now with " . $node_InfoFile;
-if (fopen($node_InfoFile,'r'))
-  {
-  $filedata = file_get_contents($node_InfoFile);
-  //print_r($filedata);
-  $node_Info = json_decode($filedata,true);
-  //print_r($node_Info);
-  build_ini_string(array($node_Info));
-  //print_r($sectionless . $out);
-  };
+
+if (fopen($nodeInfoFile,'r'))
+{
+	$filedata = file_get_contents($nodeInfoFile);
+	$nodeInfo = json_decode($filedata,true);
+	//print_r($nodeInfo);
+};
+
+
+
+//if (fopen($svxConfigFile,'r'))
+//      {
+
+//        $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
+//};
+
+
+
 if (isset($_POST['btnSave']))
     {
-        $retval = null;
-        $screen = null;
-	
-    $node_Info["Location"] = $_POST['inLocation']; 
-    $node_Info["Locator"] = $_POST['inLocator'];
-    $node_Info["SysOp"] = $_POST['inSysOp'];
-	  $node_Info["LAT"] = $_POST['inLAT']; 
-    $node_Info["LONG"] = $_POST['inLONG'];
-    $node_Info["RXFREQ"] = $_POST['inRXFREQ'];
-	  $node_Info["TXFREQ"] = $_POST['inTXFREQ']; 
-    $node_Info["Website"] = $_POST['inWebsite'];
-    $node_Info["Mode"] = $_POST['inMode'];
-	  $node_Info["Type"] = $_POST['inType']; 
-    $node_Info["Echolink"] = $_POST['inEcholink'];
-    $node_Info["nodeLocation"] = $_POST['innodeLocation'];
-	  $node_Info["Compound"] = $_POST['inCompound'];
-    $node_Info["CTCSS"] = $_POST['inCTCSS'];
-	  $node_Info["LinkedTo"] = $_POST['inLinkedTo'];
+	$nodeInfo["Location"] = $_POST['inLocation']; $nodeInfo["Locator"] = $_POST['inLocator'];$nodeInfo["SysOp"] = $_POST['inSysOp'];
+	$nodeInfo["LAT"] = $_POST['inLAT']; $nodeInfo["LONG"] = $_POST['inLONG'];$nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
+	$nodeInfo["TXFREQ"] = $_POST['inTXFREQ']; $nodeInfo["Website"] = $_POST['inWebsite'];$nodeInfo["Mode"] = $_POST['inMode'];
+	$nodeInfo["Type"] = $_POST['inType']; $nodeInfo["Echolink"] = $_POST['inEcholink'];$nodeInfo["nodeLocation"] = $_POST['innodeLocation'];
+	$nodeInfo["Sysop"] = $_POST['inSysop']; $nodeInfo["Verbund"] = $_POST['inVerbund'];$nodeInfo["CTCSS"] = $_POST['inCTCSS'];
+	$nodeInfo["LinkedTo"] = $_POST['inLinkedTo'];$nodeInfo["DefaultTg"] = $_POST['inDefaultTg'];
 
-	  $jsonnode_Info = json_encode($node_Info);
-	  file_put_contents("/var/www/html/node_Info/node_info.json", $jsonnode_Info ,FILE_USE_INCLUDE_PATH);
+	$jsonNodeInfo = json_encode($nodeInfo);
+	file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_USE_INCLUDE_PATH);
 
         $retval = null;
         $screen = null;
-        exec('sudo cp /etc/svxlink/node_info.json /etc/svxlink/node_info.json.' .date("YmdThis"), $screen, $retval);
-        exec('sudo mv /var/www/html/node_Info/node_info.json /etc/svxlink/node_info.json', $screen, $retval);
-        exec('sudo service svxlink restart 2>&1',$screen,$retval);
-    };
-    $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
-    $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
-    $inPassword = $svxconfig['ReflectorLogic']['AUTH_KEY'];
-	  $inLocation = $node_Info["nodeLocation"];
-    $inLocator = $node_Info["loc"]; 
-    $inSysOp = $node_Info["sysop"];
-	  $inLAT = $node_Info["lat"];
-    $inLONG = $node_Info["long"]; 
-    $inRXFREQ = $node_Info["freq"];
-	  $inTXFREQ = $node_Info["TXFREQ"];
-    $inWebsite = $node_Info["Website"]; 
-    $inMode = $node_Info["Mode"];
-	  $inType = $node_Info["Type"];
-    $inEcholink = $node_Info["Echolink"]; 
-    $innodeLocation = $node_Info["nodeLocation"];
-	  $inSysop = $node_Info["Sysop"]; 
-    $inCTCSS = $node_Info["CTCSS"];
-	  $inLinkedTo = $node_Info["LinkedTo"];
-    
+
+
+	///file manipulation section
+		//archive the current config
+		exec('sudo cp /etc/svxlink/node_info.json /etc/svxlink/node_info.json.' .date("YmdThis") ,$screen,$retval);
+		//move generated file to current config
+		exec('sudo mv /var/www/html/nodeInfo/node_info.json /etc/svxlink/node_info.json', $screen, $retval);
+        	//Service SVXlink restart
+       		exec('sudo service svxlink restart 2>&1',$screen,$retval);
+
+};
+
+//  	$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
+//        $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
+
+
+	$inLocation = $nodeInfo["Location"];$inLocator = $nodeInfo["Locator"]; $inSysOp = $nodeInfo["SysOp"];
+	$inLAT = $nodeInfo["LAT"];$inLONG = $nodeInfo["LONG"]; $inRXFREQ = $nodeInfo["RXFREQ"];
+	$inTXFREQ = $nodeInfo["TXFREQ"];$inWebsite = $nodeInfo["Website"]; $inMode = $nodeInfo["Mode"];
+	$inType = $nodeInfo["Type"];$inEcholink = $nodeInfo["Echolink"]; $innodeLocation = $nodeInfo["nodeLocation"];
+	$inSysop = $nodeInfo["Sysop"];$inVerbund = $nodeInfo["Verbund"]; $inCTCSS = $nodeInfo["CTCSS"];
+	$inLinkedTo = $nodeInfo["LinkedTo"];$inDefaultTg = $nodeInfo["DefaultTg"];
+
 ?>
+
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+
 <table>
         <tr>
-        <th width = "640px">Node Info Input</th>
-	<th width = "625px">Action</th>
+        <th width = "380px">Node Info Input</th>
+	<th width = "100px">Action</th>
         </tr>
 <tr>
 <TD>
@@ -270,7 +214,7 @@ if (isset($_POST['btnSave']))
         <input  type="text" name="inLONG" style="width:98%" value="<?php echo $inLONG;?>">
         </td></tr>
         <tr style="border: none;"> 
-        <td style="border: none;">Rx Freq</td>
+        <td style="border: none;">Rq Freq</td>
         <td style="border: none;">
         <input  type="text" name="inRXFREQ" style="width:98%" value="<?php echo $inRXFREQ;?>">
         </td></tr>
@@ -310,9 +254,9 @@ if (isset($_POST['btnSave']))
         <input  type="text" name="inSysop" style="width:98%" value="<?php echo $inSysop;?>">
         </td></tr>
         <tr style="border: none;"> 
-        <td style="border: none;">Compound</td>
+        <td style="border: none;">Verbund</td>
         <td style="border: none;">
-        <input  type="text" name="inCompound" style="width:98%" value="<?php echo $inCompound;?>">
+        <input  type="text" name="inVerbund" style="width:98%" value="<?php echo $inVerbund;?>">
         </td></tr>
         <tr style="border: none;"> 
         <td style="border: none;">LinkedTo</td>
@@ -324,6 +268,13 @@ if (isset($_POST['btnSave']))
         <td style="border: none;">
         <input  type="text" name="inCTCSS" style="width:98%" value="<?php echo $inCTCSS;?>">
         </td></tr>
+        </td></tr>
+        <tr style="border: none;"> 
+        <td style="border: none;">DefaultTG</td>
+        <td style="border: none;">
+        <input  type="text" name="inDefaultTg" style="width:98%" value="<?php echo $inDefaultTg;?>">
+        </td></tr>
+
     </table>
 </td>
 <td> 
@@ -334,38 +285,9 @@ if (isset($_POST['btnSave']))
 
 
 </form>
+
 <p style="margin: 0 auto;"></p>
 <p style="margin-bottom:-2px;"></p>
-<!--
-foreach ($lines as $line_num => $line) {
-    echo '<tr><td contenteditable="true" style="text-align:left"><input type="text" style="width:100%" name="line[]" value="' . htmlspecialchars($line) . '"></td></tr>';
-}
-echo '</table>';
-echo '<input type="submit" value="Click to Save Changes">';
-echo '</form>';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $data = '';
-    foreach ($_POST['line'] as $line) {
-        $data .= $line . "\n";
-    }
-    
-    $success = file_put_contents($file, $data);
-    echo $file . "  " . $data;
-    if ($success === false) {
-        echo 'Error saving changes to file.';
-    } else {
-        chown ($file,'www-data');
-        exec('sudo systemctl restart svxlink');
-        echo 'Changes saved and service restarted.';
-    }   
-        //exec('sudo chown -R www-data:root /etc/svxlink/');
-}
-//echo "<meta http-equiv='refresh' content='0'>";
-exit();
-//Header('Location: ' . htmlspecialchars($_SERVER['PHP_SELF']));
-//exit(); 
--->
-</fieldset>
 </body>
 </html>

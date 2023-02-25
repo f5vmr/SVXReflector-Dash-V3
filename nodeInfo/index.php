@@ -170,7 +170,7 @@ if (fopen($nodeInfoFile,'r'))
   $nodeInfo = json_decode($filedata,true);
   //print_r($nodeInfo);
   build_ini_string(array($nodeInfo));
-  print_r($sectionless . $out);
+  //print_r($sectionless . $out);
   };
 if (isset($_POST['btnSave']))
     {

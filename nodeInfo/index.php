@@ -96,8 +96,8 @@ if (fopen($nodeInfoFile,'r'))
 
 
 
-if (isset($_POST['btnSave']))
-    {
+//if (isset($_POST['btnSave']))
+ //   {
 	$nodeInfo["Location"] = $_POST['inLocation']; $nodeInfo["Locator"] = $_POST['inLocator'];$nodeInfo["SysOp"] = $_POST['inSysOp'];
 	$nodeInfo["LAT"] = $_POST['inLAT']; $nodeInfo["LONG"] = $_POST['inLONG'];$nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
 	$nodeInfo["TXFREQ"] = $_POST['inTXFREQ']; $nodeInfo["Website"] = $_POST['inWebsite'];$nodeInfo["Mode"] = $_POST['inMode'];
@@ -120,7 +120,7 @@ if (isset($_POST['btnSave']))
         	//Service SVXlink restart
        		exec('sudo service svxlink restart 2>&1',$screen,$retval);
             exec('sudo chown -R www-data:root /etc/svxlink/');
-            };
+//            };
 
 //  	$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
 //        $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];

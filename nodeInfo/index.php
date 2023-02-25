@@ -133,7 +133,11 @@ if (fopen($nodeInfoFile,'r'))
 //        $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
 //};
 
-
+if (!empty($_POST['btnSave'])) {
+    echo "Yes, file is set";    
+} else {  
+    echo "No, file is not set";
+}
 
 if (isset($_POST['btnSave']))
     {

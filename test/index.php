@@ -23,6 +23,29 @@ $lines = file($nodeInfoFile);
 //echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
 //echo '<table width=60%>';
 //echo "Here Now with " . $nodeInfoFile;
+$file = file_get_contents("/etc/svxlink/node_info.json");
+$node_info = json_decode($file, true);
+
+// Modify the values in the associative array based on user input
+$node_info["location"] = $_POST["location"];
+$node_info["frequency"] = $_POST["frequency"];
+
+// Encode the modified associative array into a .json string
+$json = json_encode($node_info, JSON_PRETTY_PRINT);
+
+// Write the .json string back to the file
+file_put_contents("/etc/svxlink/node_info.json", $json);
+?>
+<?php
+
+$json_file = file_get_contents('/etc/svxlink/node_info.json');
+$data = json_decode($json_file, true);
+
+foreach($data['qth'] as $value) {
+    $new_var = "$in" . $value['name'];
+    echo $new_var;
+}
+
 if (fopen($nodeInfoFile,'r'))
   {
   $filedata = file_get_contents($nodeInfoFile);

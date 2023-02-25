@@ -25,7 +25,7 @@ $lines = file($node_InfoFile);
 //echo "Here Now with " . $node_InfoFile;
 $file = file_get_contents($node_InfoFile);
 $node_Info = json_decode($file, true);
-
+echo $node_Info;
 // Modify the values in the associative array based on user input
 $node_Info["location"] = $_POST["location"];
 $node_Info["frequency"] = $_POST["frequency"];

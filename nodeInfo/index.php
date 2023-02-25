@@ -133,11 +133,7 @@ if (fopen($nodeInfoFile,'r'))
 //        $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
 //};
 
-if (!empty($_POST['btnSave'])) {
-    echo "Yes, file is set";    
-} else {  
-    echo "No, file is not set";
-}
+echo $nodeInfo['Location'];
 
 if (isset($_POST['btnSave']))
     {
@@ -178,9 +174,7 @@ if (isset($_POST['btnSave']))
 
 ?>
 
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" <td> 
-	<button name="btnSave" type="submit" class="red" style="height:100px; width:105px; font-size:12px;">Save <BR><Br> & <BR><BR> ReLoad</button>
-</td>>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
 <table>
         <tr>
@@ -285,7 +279,9 @@ if (isset($_POST['btnSave']))
 
     </table>
 </td>
-
+<td> 
+	<button name="btnSave" type="submit" class="red" style="height:100px; width:105px; font-size:12px;">Save <BR><Br> & <BR><BR> ReLoad</button>
+</td>
 </tr>
 </table>
 

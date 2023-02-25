@@ -53,8 +53,8 @@ if (fopen($nodeInfoFile,'r'))
         echo $filedata . " one section    " . "</b>"; 
 	$nodeInfo = json_decode($filedata,true);
         echo $nodeInfo. " two section     ". "</b>";
-	$b = (build_ini_string(array($nodeInfo)));
-        echo $b . "</b> finished. ";
+	build_ini_string(array($nodeInfo));
+        echo $nodeInfo . "</b> finished. ";
 	
 };
 

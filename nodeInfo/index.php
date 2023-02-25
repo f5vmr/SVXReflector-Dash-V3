@@ -158,10 +158,11 @@ textarea {
 $nodeInfoFile=$_GET['file'];
 exec('sudo cp ' . $nodeInfoFile . ' ' .$nodeInfoFile .'.bak');
 
-$lines = file($file);
+$lines = file($nodeInfofile);
+echo "Here Now with " . $lines;
 echo '<form method="post" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">';
 echo '<table width=60%>';
-echo "Here Now with ";
+
 if (fopen($nodeInfoFile,'r'))
   {
   $filedata = file_get_contents($nodeInfoFile);

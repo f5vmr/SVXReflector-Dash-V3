@@ -163,8 +163,11 @@ exec('sudo cp ' . $nodeInfoFile . ' ' .$nodeInfoFile .'.bak');
 if (fopen($nodeInfoFile,'w'))
   {
   $filedata = file_get_contents($nodeInfoFile);
+  print_r($filedata);
   $nodeInfo = json_decode($filedata,true);
+  print_r($nodeInfo);
   build_ini_string(array($nodeInfo));
+  print_r($sectionless . $out);
   };
 if (isset($_POST['btnSave']))
     {

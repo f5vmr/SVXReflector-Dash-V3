@@ -9,10 +9,11 @@ For the moment it is incomplete, a work in progress.
 
 
 No installation script required, simply cd to /var/www and remove any existing html folder.
+<p>
  sudo git clone https://github.com/f5vmr/SVXLink-Dashboard-V2 html
-chown svxlink -R html
+<p>chown svxlink -R html
 
-
+<p>
 To activate mDNS (host.local) use:
 ```
  sudo apt-get install avahi-daemon avahi-utils

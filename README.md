@@ -1,8 +1,12 @@
 # SVXLink-Dashboard-V2
 SVXLink Node dashboard repository inspired by pi star dashboard
-Originally constructed by SP2ONG and SP0DZ, but suffers from out of date code in PHP and Javascript.
-Brought up to date by Chris Jackson G4NAB
-test
+Originally constructed by SP2ONG and SP0DZ, but suffered from out of date code in PHP and Javascript.
+Brought up to date by Chris Jackson G4NAB with new code.
+
+This installation requires that svxlink has been compiled on Debian 11 (raspberry pi OS bullseye), and php version 8.0 or greater, and Apache 2. After that follow the instructions below.
+
+For the moment it is incomplete, a work in progress.
+
 
 No installation script required, simply cd to /var/www and remove any existing html folder.
  sudo git clone https://github.com/f5vmr/SVXLink-Dashboard-V2 html
@@ -24,4 +28,4 @@ sudo pip3 install sa818
 
 
 The svxlink dashboard has some ideas created by G4NAB, SP2ONG, SP0DZ
-and finished off by G4NAB
+and added to by G4NAB

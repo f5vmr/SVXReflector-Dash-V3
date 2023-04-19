@@ -4,7 +4,7 @@ Originally constructed by SP2ONG and SP0DZ, but suffers from out of date code in
 Brought up to date by Chris Jackson G4NAB
 test
 
-No installation script required, simply cd to /var/www a,d remove any existing html folder.
+No installation script required, simply cd to /var/www and remove any existing html folder.
  sudo git clone https://github.com/f5vmr/SVXLink-Dashboard-V2 html
 chown svxlink -R html
 

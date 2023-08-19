@@ -28,5 +28,5 @@ sudo pip3 install sa818
 ```
 
 
-The svxlink dashboard has some ideas created by G4NAB, SP2ONG, SP0DZ
+The SvxReflector Dashboard has some ideas created by G4NAB, SP2ONG, SP0DZ
 and added to by G4NAB

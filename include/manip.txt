@@ -1,5 +1,5 @@
 <?php
-$file = '/etc/svxlink/svxlink.conf';
+$file = '/etc/svxlink/svxreflector.conf';
 $lines = file($file);
 echo '<table>';
 foreach ($lines as $line_num => $line) {
@@ -8,7 +8,7 @@ foreach ($lines as $line_num => $line) {
 echo '</table>';
 ?>
 <?php
-$file = '/etc/svxlink/svxlink.conf';
+$file = '/etc/svxlink/svxreflector.conf';
 $lines = file($file);
 echo '<form method="post">';
 echo '<table>';
@@ -21,7 +21,7 @@ echo '</form>';
 ?>
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $file = '/etc/svxlink/svxlink.conf';
+    $file = '/etc/svxlink/svxreflector.conf';
     $data = '';
     foreach ($_POST['line'] as $line) {
         $data .= $line . "\n";

@@ -68,7 +68,7 @@ textarea {
 include_once('include/functions.php');
 
 /*
-$svxConfigFile = '/etc/svxlink/svxlink.conf';
+$svxConfigFile = '/etc/svxlink/svxreflector.conf';
 if (fopen($svxConfigFile,'r'))
       {
         $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
@@ -190,7 +190,7 @@ if (isset($_POST['btnSave']))
 //        $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
 //};
 
-//$svxConfigFile = '/etc/svxlink/svxlink.conf';
+//$svxConfigFile = '/etc/svxlink/svxreflector.conf';
 //$svxConfigFile = '/var/www/html/svxlink.conf';    
 
 

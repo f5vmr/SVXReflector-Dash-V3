@@ -49,7 +49,7 @@ define("RF_MODULE","");
 
 
         define("SVXCONFPATH", "/etc/svxlink/");
-        define("SVXCONFIG", "svxlink.conf");
+        define("SVXCONFIG", "svxreflector.conf");
         define("SVXLOGPATH", "/var/log/");
         define("SVXLOGPREFIX","svxlink.log");
         }
@@ -77,7 +77,7 @@ define("CPU_TEMP_OFFSET","0");
 //
 // Path and file name of confguration
 define("SVXCONFPATH", "/etc/svxlink/");
-define("SVXCONFIG", "svxlink.conf");
+define("SVXCONFIG", "svxreflector.conf");
 //
 // Path and file name of log
 define("SVXLOGPATH", "/var/log/");

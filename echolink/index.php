@@ -133,7 +133,7 @@ if (isset($_POST['btnSave'])) {
 //};
 
 //$svxConfigFile = '/etc/svxlink/svxreflector.conf';
-//$svxConfigFile = '/var/www/html/svxlink.conf';    
+//$svxConfigFile = '/var/www/html/svxreflector.conf';    
 
 
 

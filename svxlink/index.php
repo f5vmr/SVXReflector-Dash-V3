@@ -159,17 +159,17 @@ if (isset($_POST['btnSave']))
         $ini = build_ini_string($svxconfig);
 
         //file_put_contents("/var/www/html/test.ini",$ini,FILE_USE_INCLUDE_PAT);
-        file_put_contents("/var/www/html/svxlink/svxlink.conf", $ini ,FILE_USE_INCLUDE_PATH);
+        file_put_contents("/var/www/html/svxlink/svxreflector.conf", $ini ,FILE_USE_INCLUDE_PATH);
 
 	///file manipulation section
 
 	$retval = null;
         $screen = null;
 	//archive the current config
-	exec('sudo cp /etc/svxlink/svxlink.conf /etc/svxlink/svxlink.conf.' .date("YmdThis") ,$screen,$retval);
+	exec('sudo cp /etc/svxlink/svxreflector.conf /etc/svxlink/svxreflector.conf.' .date("YmdThis") ,$screen,$retval);
 	//move generated file to current config
-	exec('sudo mv /var/www/html/svxlink/svxlink.conf /etc/svxlink/svxlink.conf', $screen, $retval);
-//	exec('sudo cp /etc/svxlink/svxlink.conf /etc/svxlink/svxlink.d/SomeLogic.conf', $screen, $retval);
+	exec('sudo mv /var/www/html/svxlink/svxreflector.conf /etc/svxlink/svxreflector.conf', $screen, $retval);
+//	exec('sudo cp /etc/svxlink/svxreflector.conf /etc/svxlink/svxlink.d/SomeLogic.conf', $screen, $retval);
         //Service SVXlink restart
         exec('sudo service svxlink restart 2>&1',$screen,$retval);
 
@@ -191,7 +191,7 @@ if (isset($_POST['btnSave']))
 //};
 
 //$svxConfigFile = '/etc/svxlink/svxreflector.conf';
-//$svxConfigFile = '/var/www/html/svxlink.conf';    
+//$svxConfigFile = '/var/www/html/svxreflector.conf';    
 
 
 

@@ -1,5 +1,5 @@
 <?php
-$host = '0.0.0.0'; // Listen on all available network interfaces
+$host = '127.0.0.1; // Listen on all available network interfaces
 $port = 5300;
 
 // Create a UDP socket

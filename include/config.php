@@ -51,7 +51,7 @@ define("RF_MODULE","");
         define("SVXCONFPATH", "/etc/svxlink/");
         define("SVXCONFIG", "svxreflector.conf");
         define("SVXLOGPATH", "/var/log/");
-        define("SVXLOGPREFIX","svxlink.log");
+        define("SVXLOGPREFIX","svxreflector.log");
         }
         include_once 'parse_svxconf.php';
         
@@ -81,7 +81,7 @@ define("SVXCONFIG", "svxreflector.conf");
 //
 // Path and file name of log
 define("SVXLOGPATH", "/var/log/");
-define("SVXLOGPREFIX", "svxlink.log");
+define("SVXLOGPREFIX", "svxreflector.log");
 //
 //
 // Define where is located menu wit buttons TOP or BOTTOM

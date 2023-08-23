@@ -38,7 +38,7 @@ define("KEY20", array(' D20 ','*D20#','red'));
 define("SVXCONFPATH", "/etc/svxlink/");
 define("SVXCONFIG", "svxreflector.conf");
 define("SVXLOGPATH", "/var/log/");
-define("SVXLOGPREFIX","svxlink.log");
+define("SVXLOGPREFIX","svxreflector.log");
 define("CALLSIGN","");
 define("LOGICS","");
 define("REPORT_CTCSS","");

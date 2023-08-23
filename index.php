@@ -3,7 +3,7 @@ $progname = basename($_SERVER['SCRIPT_FILENAME'],".php");
 include_once 'include/config.php';
 include_once 'include/tools.php';
 $svxConfigFile = '/etc/svxlink/svxreflector.conf';
-if (fopen($svxConfigFile, 'r')) {
+/*if (fopen($svxConfigFile, 'r')) {
     $svxconfig = parse_ini_file($svxConfigFile, true, INI_SCANNER_RAW);
     $callsign = $svxconfig['USERS']['CALLSIGN'];
     $fmnetwork = $svxconfig['ReflectorLogic']['FMNET'];
@@ -14,6 +14,8 @@ if (fopen($svxConfigFile, 'r')) {
 else { $callsign="NOCALL"; 
        $fmnetwork="not registered";
 	}
+*/
+$node_user = "SvxPortal";
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"

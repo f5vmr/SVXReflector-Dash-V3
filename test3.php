@@ -6,7 +6,7 @@ $port = 5300;
 $socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
 socket_bind($socket, $host, $port);
 
-$log = '';
+$log = '/var/log/svx_read';
 
 // Continuously read data from the UDP socket
 while (true) {

@@ -1,5 +1,5 @@
 <?php
-
+phpinfo();
 // Step 1: Initialize cURL session
 $ch = curl_init();
 
